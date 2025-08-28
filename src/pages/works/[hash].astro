@@ -32,7 +32,7 @@ const remainingImages = imageUrls.slice(1);
     {
       firstImage && (
         <div class='image_wrap'>
-            <Picture src={firstImage} alt="dhsb" />
+            <Picture src={firstImage} alt={`${work.data.title} - TLDR`} loading="eager" />
         </div>
       )
     }
