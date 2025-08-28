@@ -1,6 +1,6 @@
 {
   "name": "binastrocle",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
-    "astro": "^5.13.4"
+    "astro": "^5.13.4",
+    "sharp": "^0.34.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2"
