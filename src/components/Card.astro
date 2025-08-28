@@ -1,9 +1,9 @@
 ---
 // Component JavaScript
-const { title, href = "#" } = Astro.props;
+const { title, href = '#' } = Astro.props;
 ---
+
 <style>
-  /* Scoped CSS - only affects THIS component */
   .card {
     border: 1px solid #ddd;
     padding: 1rem;
@@ -11,7 +11,7 @@ const { title, href = "#" } = Astro.props;
   }
 </style>
 
-<div class="card">
+<div class='card'>
   <h3>{title}</h3>
   <a href={href}>Learn more →</a>
 </div>

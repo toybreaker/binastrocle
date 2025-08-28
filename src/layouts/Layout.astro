@@ -1,5 +1,7 @@
 ---
 // JavaScript here - NOT TypeScript!
+import Header from "@/components/Header.astro";
+
 const { title } = Astro.props;
 ---
 
@@ -12,6 +14,7 @@ const { title } = Astro.props;
         <link rel="stylesheet" href="/src/styles/global.css" />
     </head>
     <body>
+        <Header/>
         <slot />
         <!-- Page content goes here -->
 
