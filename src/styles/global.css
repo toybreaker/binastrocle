@@ -5,7 +5,7 @@
   --bg_color: #fafafa;
   --link_color: #555;
   --link_color_light: #888;
-  --vertical_rhythm: 1.5svh;
+  --space: 1.5svh;
 
   /* Breakpoints - use in container queries or JS */
   --mobile: 600px;
@@ -26,9 +26,9 @@ html {
 
 body {
   font-family: var(--font_family);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.55;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -123,8 +123,9 @@ svg {
 /* Header styles */
 .header {
   display: block;
-  margin: var(--vertical_rhythm) 0;
-  padding-top: calc(var(--vertical_rhythm) * 0.5);
+  margin: var(--space) 0;
+  padding-top: calc(var(--space) * 2.5);
+  padding-bottom: calc(var(--space) * 1);
 }
 
 .showing_menu .header,
@@ -159,7 +160,7 @@ svg {
 .menu {
   list-style: none;
   padding: 0;
-  margin: var(--vertical_rhythm) 0;
+  margin: var(--space) 0;
 }
 
 .menu li {
@@ -211,10 +212,10 @@ body.home {
 /* Profile styles */
 .profile {
   max-width: 100%;
-  margin: var(--vertical_rhythm) auto 0;
+  margin: var(--space) auto 0;
   font-size: 1rem;
   text-align: left;
-  padding: 0 var(--vertical_rhythm);
+  padding: 0 var(--space);
 }
 
 @media (min-width: 601px) {
@@ -239,8 +240,8 @@ body.home {
 }
 
 .profile .contact {
-  padding-top: calc(var(--vertical_rhythm) * 0.5);
-  padding-bottom: calc(var(--vertical_rhythm) * 0.5);
+  padding-top: calc(var(--space) * 0.5);
+  padding-bottom: calc(var(--space) * 0.5);
   text-align: center;
 }
 
@@ -256,7 +257,7 @@ body.home {
 }
 
 .profile p {
-  padding: 0 var(--vertical_rhythm);
+  padding: 0 var(--space);
   margin-left: auto;
   margin-right: auto;
   max-width: 640px;
@@ -264,7 +265,7 @@ body.home {
 
 @media (min-width: 601px) {
   .profile p {
-    padding: 0 calc(var(--vertical_rhythm) * 0.5);
+    padding: 0 calc(var(--space) * 0.5);
   }
 }
 
@@ -288,16 +289,17 @@ body.home {
   font-weight: 300;
   text-align: center;
   text-transform: uppercase;
+  padding-top: calc(var( --space) * 1.5);
 }
 
 @media (min-width: 601px) {
-  .work-name {
+  .work_name {
     font-size: 2.5rem;
   }
 }
 
 @media (min-width: 801px) {
-  .work-name {
+  .work_name {
     font-size: 3rem;
   }
 }
@@ -305,6 +307,9 @@ body.home {
 .intro {
   font-size: 1.1rem;
   text-align: left;
+}
+.intro p {
+    text-align: justify;
 }
 
 @media (min-width: 801px) {
@@ -314,12 +319,12 @@ body.home {
 }
 
 .intro p {
-  margin-left: calc(var(--vertical_rhythm) * 2);
-  margin-right: calc(var(--vertical_rhythm) * 2);
+  margin-left: calc(var(--space) * 2);
+  margin-right: calc(var(--space) * 2);
 }
 
 .intro table {
-  padding: var(--vertical_rhythm) calc(var(--vertical_rhythm) * 2) calc(var(--vertical_rhythm) * 2);
+  padding: var(--space) calc(var(--space) * 2) calc(var(--space) * 2);
   display: block;
   font-size: 1rem;
 }
@@ -333,7 +338,7 @@ body.home {
 }
 
 .intro table td:first-child {
-  width: 220px;
+  width: 13ch;
   font-style: italic;
 }
 
@@ -351,17 +356,14 @@ body.home {
 
 @media (max-width: 800px) {
   .intro table td {
-    display: block;
-    width: 70vw;
+    width: fit-content;
   }
 }
 
 .image_wrap {
   width: 100%;
   display: block;
-  float: left;
-  margin: 0 0 calc(var(--vertical_rhythm) * 0.5);
-  position: relative;
+  margin: 0 0 calc(var(--space) * 0.5);
 }
 
 .image_wrap img {
@@ -384,6 +386,6 @@ body.home {
   order: 1;
 }
 
-.shots :nth-child(3) {
+.shots:nth-child(3) {
   order: -1;
 }
