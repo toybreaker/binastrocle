@@ -1,13 +1,12 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log('This runs in your terminal, not the browser!');
-import { Picture } from 'astro:assets';
-// JavaScript in the frontmatter
+// src/pages/index.astro
+console.log('this ROKMA runs in your terminal, not the browser!');
+
 import Layout from '@layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 import cover from '@p/cover.jpg';
-const pageTitle = 'BIN|astro|OCLE';
-const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
+const pageTitle = 'BINOCLE | 2025 update';
+
 ---
 
 <style>
@@ -20,11 +19,11 @@ const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
   <h1 class='hide'>BINOCLE</h1>
   <div class='bungkus'>
     <div class='home shots'>
-        <Picture src={cover} formats={['avif', 'webp']} alt='Binocle By Lorenzo Bini'  layout='constrained' />
+        <Picture src={cover} formats={['avif', 'webp']} alt='Binocle By Lorenzo Bini' layout='constrained' />
     </div>
   </div>
 
   <script>
-    console.log('This runs on the client');
+    console.log('This ROKMA runs on the client');
   </script>
 </Layout>

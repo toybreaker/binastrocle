@@ -1,8 +1,9 @@
 ---
 // src/pages/works/[hash].astro
 import { getCollection, render } from 'astro:content';
-import Layout from '@layouts/Layout.astro';
 import { getWorkImagesSync } from '@utils/imageUtils';
+import Layout from '@layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 
 // Generate routes for all works
 export async function getStaticPaths() {
@@ -31,7 +32,7 @@ const remainingImages = imageUrls.slice(1);
     {
       firstImage && (
         <div class='image_wrap'>
-          <img src={firstImage} alt={`${work.data.title} - Featured Image`} loading='eager' />
+            <Picture src={firstImage} alt="dhsb" />
         </div>
       )
     }
@@ -42,17 +43,17 @@ const remainingImages = imageUrls.slice(1);
       <Content />
     </section>
 
+    <!-- For remaining images, use Picture component too -->
     <section class='image_content'>
         {
-            remainingImages.map((imageUrl, index) => (
+            remainingImages.map((imageObj, index) => (
             <div class='image_wrap'>
-                <img src={imageUrl} alt={`${work.data.title} - Image ${index + 2}`} loading='lazy' />
+                <Picture src={imageObj} alt={`${work.data.title} - Image ${index + 2}`} loading='lazy' />
             </div>
             ))
         }
 
         {imageUrls.length === 0 && <p>No images found for this work.</p>}
-
     </section>
   </div>
 
