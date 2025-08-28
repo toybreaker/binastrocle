@@ -17,7 +17,6 @@
     "astro": "^5.13.4"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "@biomejs/biome": "^2.2.2"
   }
 }
