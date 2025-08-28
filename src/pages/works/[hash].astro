@@ -26,7 +26,7 @@ const imageUrls = getWorkImagesSync(work.data.hash);
 <Layout title={work.data.title}>
   <div class='bungkus'>
     <div class='header'>
-      <div class='go-home'>
+      <div class='go_home'>
         <a href='/'>
           <!-- Your logo SVG here -->
           <svg><!-- binocle logo --></svg>
@@ -34,8 +34,8 @@ const imageUrls = getWorkImagesSync(work.data.hash);
       </div>
     </div>
 
-    <div class='text-content'>
-      <h1 class='work-name'>{work.data.project}</h1>
+    <div class='text_content'>
+      <h2 class='work_name'>{work.data.project}</h2>
 
       <div class='intro'>
         <Content />
@@ -44,7 +44,7 @@ const imageUrls = getWorkImagesSync(work.data.hash);
       <!-- Display all images found in the work folder -->
       {
         imageUrls.map((imageUrl, index) => (
-          <div class='image-wrap'>
+          <div class='image_wrap'>
             <img src={imageUrl} alt={`${work.data.title} - Image ${index + 1}`} loading='lazy' />
           </div>
         ))
