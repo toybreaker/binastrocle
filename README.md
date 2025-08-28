@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8e68f78-ce95-415b-b642-674bfc7dff3a/deploy-status)](https://app.netlify.com/projects/binocleastro/deploys)
+
 # Astro 5+ with Pure JavaScript - Quick Reference
 
 ## Project Structure
@@ -14,7 +16,7 @@ my-astro-site/
 │   ├── styles/          # CSS files (processed by Vite)
 │   │   └── global.css
 │   └── scripts/         # JS files (processed & optimized by Vite!)
-│       └── main.js      
+│       └── main.js
 ├── public/              # Static assets (served as-is, NO processing)
 │   ├── favicon.ico
 │   └── legacy-libs/     # Old libraries that shouldn't be processed
@@ -132,15 +134,15 @@ const items = ['First', 'Second', 'Third'];
 
 <Layout title={pageTitle}>
   <h1>Welcome</h1>
-  
+
   <!-- Use JavaScript expressions -->
   <ul>
     {items.map(item => <li>{item}</li>)}
   </ul>
-  
+
   <!-- Use components -->
   <Card title="Hello" />
-  
+
   <!-- Inline scripts if needed -->
   <script>
     console.log('This runs on the client');
@@ -241,7 +243,7 @@ public/
 └── libs/jquery.min.js  → /libs/jquery.min.js (already minified)
 ```
 
-**⚠️ Important:** 
+**⚠️ Important:**
 - `src/` = Vite processes & optimizes your JS/CSS
 - `public/` = Served as-is, no processing at all
 
