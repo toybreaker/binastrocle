@@ -119,7 +119,7 @@ const { title } = Astro.props;
 </head>
 <body>
   <slot /> <!-- Page content goes here -->
-  <script src="/scripts/main.js"></script>
+  <!-- <script src="/scripts/main.js"></script> -->
 </body>
 </html>
 ```
