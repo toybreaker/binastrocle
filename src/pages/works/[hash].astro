@@ -21,6 +21,8 @@ const { Content } = await render(work);
 
 // Get all images for this work automatically
 const imageUrls = getWorkImagesSync(work.data.hash);
+const firstImage = imageUrls[0];
+const remainingImages = imageUrls.slice(1);
 ---
 
 <Layout title={work.data.title}>
@@ -35,17 +37,26 @@ const imageUrls = getWorkImagesSync(work.data.hash);
     </div>
 
     <div class='text_content'>
+      <!-- Display first image before h2 title -->
+      {
+        firstImage && (
+          <div class='image_wrap'>
+            <img src={firstImage} alt={`${work.data.title} - Featured Image`} loading='lazy' />
+          </div>
+        )
+      }
+
       <h2 class='work_name'>{work.data.project}</h2>
 
       <div class='intro'>
         <Content />
       </div>
 
-      <!-- Display all images found in the work folder -->
+      <!-- Display remaining images after text content -->
       {
-        imageUrls.map((imageUrl, index) => (
+        remainingImages.map((imageUrl, index) => (
           <div class='image_wrap'>
-            <img src={imageUrl} alt={`${work.data.title} - Image ${index + 1}`} loading='lazy' />
+            <img src={imageUrl} alt={`${work.data.title} - Image ${index + 2}`} loading='lazy' />
           </div>
         ))
       }
