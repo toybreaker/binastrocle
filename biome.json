@@ -1,15 +1,15 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
   "files": {
-    "include": [
-      "src/**/*.js", 
+    "includes": [
+      "src/**/*.js",
       "src/**/*.astro",
-      "src/**/*.css", 
+      "src/**/*.css",
       "*.mjs",
       "*.js",
       "astro.config.*"
     ],
-    "ignore": ["dist", "node_modules", ".astro"]
+    "experimentalScannerIgnores": ["dist", "node_modules", ".astro"]
   },
   "formatter": {
     "enabled": true,
@@ -31,7 +31,7 @@
   },
   "overrides": [
     {
-      "include": ["*.astro", "src/**/*.astro"],
+      "includes": ["*.astro", "src/**/*.astro"],
       "formatter": {
         "enabled": false
       },
