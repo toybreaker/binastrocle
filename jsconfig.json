@@ -7,6 +7,9 @@
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
       "@utils/*": ["src/utils/*"],
+      "@fav/*": ["src/assets/favicons/*"],
+      "@p/*": ["src/assets/p/*"],
+      "@pdf/*": ["src/assets/pdf/*"],
       "@styles/*": ["src/styles/*"]
     }
   },

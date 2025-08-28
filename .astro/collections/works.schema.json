@@ -1,0 +1,81 @@
+{
+  "$ref": "#/definitions/works",
+  "definitions": {
+    "works": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "image1": {
+          "type": "string"
+        },
+        "image2": {
+          "type": "string"
+        },
+        "image3": {
+          "type": "string"
+        },
+        "image4": {
+          "type": "string"
+        },
+        "image5": {
+          "type": "string"
+        },
+        "image6": {
+          "type": "string"
+        },
+        "image7": {
+          "type": "string"
+        },
+        "image8": {
+          "type": "string"
+        },
+        "image9": {
+          "type": "string"
+        },
+        "image10": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "layout",
+        "hash",
+        "project",
+        "title",
+        "description",
+        "image",
+        "image1",
+        "image2",
+        "image3",
+        "image4",
+        "image5",
+        "image6",
+        "image7",
+        "image8",
+        "image9",
+        "image10"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

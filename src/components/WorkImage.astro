@@ -1,0 +1,16 @@
+---
+//WorkImage.astro
+import { Picture } from 'astro:assets';
+
+const { src, alt = '', index } = Astro.props;
+---
+
+<Picture
+  src={src}
+  alt={alt || `Work image ${index}`}
+  formats={['webp', 'avif']}
+  layout="constrained"
+  width={1200}
+  height={800}
+  quality={80}
+/>

@@ -166,7 +166,7 @@ declare module 'astro:content' {
   id: string;
   body?: string;
   collection: "works";
-  data: any;
+  data: InferEntrySchema<"works">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
@@ -202,6 +202,6 @@ declare module 'astro:content' {
 		LiveContentConfig['collections'][C]['loader']
 	>;
 
-	export type ContentConfig = typeof import("../src/content.config.mjs");
+	export type ContentConfig = typeof import("../src/content.config.js");
 	export type LiveContentConfig = never;
 }
