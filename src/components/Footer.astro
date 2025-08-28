@@ -1,29 +1,29 @@
 ---
 // Footer.astro
 ---
-<style>
-.footer {
-  display: block;
-  margin-top: var(--vertical_rhythm);
-  margin-bottom: var(--vertical_rhythm);
-  padding-bottom: calc(var(--vertical_rhythm) * 0.5);
-  width: 100%;
-  text-align: center;
-}
-.showing_profile .footer {
-  display: none;
-}
 
+<style>
+  .footer {
+    display: block;
+    margin-top: var(--vertical_rhythm);
+    margin-bottom: var(--vertical_rhythm);
+    padding-bottom: calc(var(--vertical_rhythm) * 0.5);
+    width: 100%;
+    text-align: center;
+  }
+  .showing_profile .footer {
+    display: none;
+  }
 </style>
 
 <footer class='footer'>
-
-    <span class='go_home see_more'>
+  <span class='go_home see_more'>
+    <a href='#top'>
       <svg id='see_more_icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
         <path d='M169.067 600L400 200l230.934 400H169.067z'></path>
       </svg>
-    </span>
-
+    </a>
+  </span>
   <span class='go_home' id='toggle_about_binocle'>
     <svg id='binocle_mini_logo' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680.315 680.315'>
       <path
