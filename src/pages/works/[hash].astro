@@ -1,0 +1,60 @@
+---
+// src/pages/works/[hash].astro
+import { getCollection, render } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+import { getWorkImagesSync } from '@/utils/imageUtils.js';
+
+// Generate routes for all works
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  
+  return works.map((work) => ({
+    params: { 
+      hash: work.data.hash 
+    },
+    props: { work }
+  }));
+}
+
+const { work } = Astro.props;
+const { Content } = await render(work);
+
+// Get all images for this work automatically
+const imageUrls = getWorkImagesSync(work.data.hash);
+---
+
+<Layout title={work.data.title}>
+  <div class="bungkus">
+    <div class="header">
+      <div class="go-home">
+        <a href="/">
+          <!-- Your logo SVG here -->
+          <svg><!-- binocle logo --></svg>
+        </a>
+      </div>
+    </div>
+    
+    <div class="text-content">
+      <h1 class="work-name">{work.data.project}</h1>
+      
+      <div class="intro">
+        <Content />
+      </div>
+      
+      <!-- Display all images found in the work folder -->
+      {imageUrls.map((imageUrl, index) => (
+        <div class="image-wrap">
+          <img 
+            src={imageUrl}
+            alt={`${work.data.title} - Image ${index + 1}`}
+            loading="lazy"
+          />
+        </div>
+      ))}
+      
+      {imageUrls.length === 0 && (
+        <p>No images found for this work.</p>
+      )}
+    </div>
+  </div>
+</Layout>

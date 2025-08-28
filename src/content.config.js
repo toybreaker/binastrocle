@@ -11,7 +11,7 @@ const works = defineCollection({
     title: z.string(),
     description: z.string(),
     image: z.string(),
-    images: z.array(z.number()).optional(),
+    images: z.array(z.number()).optional(), // Keep optional for now, will be auto-populated
   }),
 });
 
