@@ -2,11 +2,10 @@
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
 console.log('This runs in your terminal, not the browser!');
-
+import { Picture } from 'astro:assets';
 // JavaScript in the frontmatter
 import Layout from '@layouts/Layout.astro';
-import Card from '@components/Card.astro';
-
+import cover from '@p/home-1920.jpg';
 const pageTitle = 'BIN|astro|OCLE';
 const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
 ---
@@ -18,17 +17,14 @@ const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
 </style>
 
 <Layout title={pageTitle}>
-  <h1>BINOCLE</h1>
+  <h1 class="hide">BINOCLE</h1>
+  <div class="bungkus">
+  <div class="home shots">
+      <Picture src={cover} formats={['avif', 'webp']} alt="A description of my image." />
 
-  <!-- Use JavaScript expressions -->
-  <ul>
-    {items.map((item) => <li>{item}</li>)}
-  </ul>
+  </div>
+</div>
 
-  <!-- Use components -->
-  <Card title='Hello' />
-
-  <!-- Inline scripts if needed -->
   <script>
     console.log('This runs on the client');
   </script>
