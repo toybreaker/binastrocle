@@ -1,0 +1,35 @@
+---
+// Welcome to Astro! Everything between these triple-dash code fences
+// is your "component frontmatter". It never runs in the browser.
+console.log("This runs in your terminal, not the browser!");
+
+// JavaScript in the frontmatter
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+const pageTitle = "Home";
+const items = ["First", "Second", "Third", "FORZA UN PO!"];
+---
+
+<style>
+    h1 {
+        color: orange;
+    }
+</style>
+
+<Layout title={pageTitle}>
+    <h1>BIN|astro|OCLE</h1>
+
+    <!-- Use JavaScript expressions -->
+    <ul>
+        {items.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <!-- Use components -->
+    <Card title="Hello" />
+
+    <!-- Inline scripts if needed -->
+    <script>
+        console.log("This runs on the client");
+    </script>
+</Layout>
