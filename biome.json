@@ -1,7 +1,14 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "files": {
-    "include": ["src/**/*.js", "src/**/*.css", "*.mjs"],
+    "include": [
+      "src/**/*.js", 
+      "src/**/*.astro",
+      "src/**/*.css", 
+      "*.mjs",
+      "*.js",
+      "astro.config.*"
+    ],
     "ignore": ["dist", "node_modules", ".astro"]
   },
   "formatter": {
@@ -24,7 +31,7 @@
   },
   "overrides": [
     {
-      "include": ["*.astro"],
+      "include": ["*.astro", "src/**/*.astro"],
       "formatter": {
         "enabled": false
       },

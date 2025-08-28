@@ -1,6 +1,6 @@
 {
   "name": "binastrocle",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "preview": "astro preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "ROKMA",
   "license": "MIT",
   "packageManager": "pnpm@10.11.1",
   "dependencies": {

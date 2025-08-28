@@ -1,0 +1,397 @@
+/* styles/main.css - Main entry point with CSS custom properties */
+:root {
+  --font_family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --bg_color: #fafafa;
+  --link_color: #555;
+  --link_color_light: #888;
+  --vertical_rhythm: 1.5svh;
+  
+  /* Breakpoints - use in container queries or JS */
+  --mobile: 600px;
+  --tablet: 800px;
+  --desktop: 1260px;
+}
+
+/* Base styles */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font_family);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg_color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link_color);
+  text-transform: capitalize;
+}
+
+a.active {
+  color: var(--link_color_light);
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.bungkus {
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (min-width: 801px) {
+  .bungkus {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1261px) {
+  .bungkus {
+    width: 90vw;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+.text-content {
+  max-width: 960px;
+}
+
+@media (min-width: 801px) {
+  .text-content {
+    margin: 0 auto;
+  }
+}
+
+.site-title {
+  text-transform: uppercase;
+}
+
+.footer {
+  display: block;
+  margin-top: var(--vertical_rhythm);
+  margin-bottom: var(--vertical_rhythm);
+  padding-bottom: calc(var(--vertical_rhythm) * 0.5);
+  width: 100%;
+  text-align: center;
+}
+
+.go-home {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-home svg {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+.go-home:hover {
+  cursor: pointer;
+}
+
+.showing-menu #see-more-icon {
+  display: none;
+}
+
+:not(.showing-menu) #binocle-mini-logo {
+  display: none;
+}
+
+.home #binocle-mini-logo,
+.showing-menu #binocle-mini-logo {
+  display: block;
+}
+
+/* Header styles */
+.header {
+  display: block;
+  margin: var(--vertical_rhythm) 0;
+  padding-top: calc(var(--vertical_rhythm) * 0.5);
+}
+
+.showing-menu .header,
+.showing-profile .header {
+  height: auto;
+}
+
+.logo {
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.logo svg {
+  user-select: none;
+  height: 12vw;
+  max-width: 640px;
+}
+
+@media (min-width: 801px) {
+  .logo svg {
+    width: 640px;
+    height: auto;
+  }
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: var(--vertical_rhythm) 0;
+}
+
+.menu li {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.menu li a {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (min-width: 601px) {
+  .menu li a {
+    font-size: 1.5rem;
+  }
+}
+
+.menu li a:hover {
+  color: var(--link_color_light);
+}
+
+/* Home styles */
+body.home {
+  min-height: 100vh;
+}
+
+.pictureoftheday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pictureoftheday picture {
+  height: 100%;
+  max-height: 1920px;
+  width: auto;
+  object-fit: cover;
+}
+
+.showing-menu .pictureoftheday,
+.showing-profile .pictureoftheday {
+  display: none;
+}
+
+/* Profile styles */
+.profile {
+  max-width: 100%;
+  margin: var(--vertical_rhythm) auto 0;
+  font-size: 1rem;
+  text-align: left;
+  padding: 0 var(--vertical_rhythm);
+}
+
+@media (min-width: 601px) {
+  .profile {
+    text-align: justify;
+  }
+}
+
+.profile .profile-photo {
+  width: 100%;
+  display: block;
+  float: none;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  max-width: 640px;
+}
+
+.profile .curri-link {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.profile .contact {
+  padding-top: calc(var(--vertical_rhythm) * 0.5);
+  padding-bottom: calc(var(--vertical_rhythm) * 0.5);
+  text-align: center;
+}
+
+.profile strong {
+  font-weight: 400;
+}
+
+.profile em {
+  display: block;
+  width: 100%;
+  font-style: normal;
+  text-align: center;
+}
+
+.profile p {
+  padding: 0 var(--vertical_rhythm);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+}
+
+@media (min-width: 601px) {
+  .profile p {
+    padding: 0 calc(var(--vertical_rhythm) * 0.5);
+  }
+}
+
+@media (min-width: 801px) {
+  .profile p {
+    padding: 0;
+  }
+}
+
+.contact a:not(.instagram) {
+  text-transform: lowercase;
+}
+
+.showing-profile .footer {
+  display: none;
+}
+
+/* Works styles */
+.work-name {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (min-width: 601px) {
+  .work-name {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 801px) {
+  .work-name {
+    font-size: 3rem;
+  }
+}
+
+.intro {
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+@media (min-width: 801px) {
+  .intro {
+    text-align: justify;
+  }
+}
+
+.intro p {
+  margin-left: calc(var(--vertical_rhythm) * 2);
+  margin-right: calc(var(--vertical_rhythm) * 2);
+}
+
+.intro table {
+  padding: var(--vertical_rhythm) calc(var(--vertical_rhythm) * 2) calc(var(--vertical_rhythm) * 2);
+  display: block;
+  font-size: 1rem;
+}
+
+.intro table a {
+  text-transform: none;
+}
+
+.intro table a:hover {
+  color: black;
+}
+
+.intro table td:first-child {
+  width: 220px;
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .intro table td:first-child {
+    padding-top: 0.5rem;
+  }
+}
+
+.intro table td {
+  text-align: left;
+  padding-bottom: 0.25rem;
+  vertical-align: baseline;
+}
+
+@media (max-width: 800px) {
+  .intro table td {
+    display: block;
+    width: 70vw;
+  }
+}
+
+.image-wrap {
+  width: 100%;
+  display: block;
+  float: left;
+  margin: 0 0 calc(var(--vertical_rhythm) * 0.5);
+  position: relative;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+/* Shots styles */
+.shots {
+  display: flex;
+  flex-direction: column;
+}
+
+.showing-profile .shots,
+.showing-menu .shots {
+  display: none;
+}
+
+.shots * {
+  order: 1;
+}
+
+.shots :nth-child(3) {
+  order: -1;
+}
