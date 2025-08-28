@@ -5,7 +5,7 @@ console.log('This runs in your terminal, not the browser!');
 import { Picture } from 'astro:assets';
 // JavaScript in the frontmatter
 import Layout from '@layouts/Layout.astro';
-import cover from '@p/home-1920.jpg';
+import cover from '@p/cover.jpg';
 const pageTitle = 'BIN|astro|OCLE';
 const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
 ---
@@ -17,13 +17,12 @@ const items = ['First', 'Second', 'Third', 'FORZA UN PO!'];
 </style>
 
 <Layout title={pageTitle}>
-  <h1 class="hide">BINOCLE</h1>
-  <div class="bungkus">
-  <div class="home shots">
-      <Picture src={cover} formats={['avif', 'webp']} alt="A description of my image." />
-
+  <h1 class='hide'>BINOCLE</h1>
+  <div class='bungkus'>
+    <div class='home shots'>
+      <Picture src={cover} formats={['avif', 'webp']} alt='A description of my image.' />
+    </div>
   </div>
-</div>
 
   <script>
     console.log('This runs on the client');

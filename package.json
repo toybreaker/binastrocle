@@ -1,22 +1,27 @@
 {
   "name": "binastrocle",
   "version": "0.0.7",
-  "description": "",
+  "private": true,
+  "license": "UNLICENSED",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "format": "biome format --write ./src",
-    "lint": "biome lint ./src"
+    "lint": "biome lint ./src",
+    "dev": "astro dev --open",
+    "check": "astro check --watch & astro dev",
+    "build": "astro build --force",
+    "buildv": "astro build --verbose",
+    "builddev": "astro build --devOutput",
+    "buildwithtest": "astro check && tsc --noEmit && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "upg": "npx @astrojs/upgrade"
   },
-  "keywords": [],
-  "author": "ROKMA",
-  "license": "MIT",
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "astro": "^5.13.4",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.3",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2"

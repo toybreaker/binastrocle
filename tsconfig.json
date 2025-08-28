@@ -1,0 +1,22 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "src/**/*"],
+  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@root/*": ["src/*"],
+      //one level deep
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@utils*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@assets/*": ["src/assets/*"],
+      //two levels deep
+      "@fav/*": ["src/assets/favicons/*"],
+      "@p/*": ["src/assets/p/*"],
+      "@pdf/*": ["src/assets/pdf/*"],
+    },
+  },
+}

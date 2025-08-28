@@ -2,11 +2,11 @@
   "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
   "files": {
     "includes": [
-      "src/**/*.js",
+      "src/**/*.ts",
       "src/**/*.astro",
       "src/**/*.css",
       "*.mjs",
-      "*.js",
+      "*.ts",
       "astro.config.*"
     ],
     "experimentalScannerIgnores": ["dist", "node_modules", ".astro"]
@@ -15,7 +15,7 @@
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 100
+    "lineWidth": 80
   },
   "linter": {
     "enabled": true,
@@ -33,10 +33,10 @@
     {
       "includes": ["*.astro", "src/**/*.astro"],
       "formatter": {
-        "enabled": false
+        "enabled": true
       },
       "linter": {
-        "enabled": false
+        "enabled": true
       }
     }
   ]
