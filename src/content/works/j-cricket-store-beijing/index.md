@@ -1,6 +1,6 @@
 ---
 layout: works
-hash: jcricketstorebeijing
+hash: j-cricket-store-beijing
 project: j.cricket store beijing
 title: Binocle - J.Cricket store Beijing
 description: "The first J.Cricket store in the world opened in SKP-S Beijing was conceived as a background sequence for the brand’s collection and for Jimin Lee’s world..."

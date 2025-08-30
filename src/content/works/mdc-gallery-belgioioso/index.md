@@ -1,6 +1,6 @@
 ---
 layout: works
-hash: mdcgallerybelgioioso
+hash: mdc-gallery-belgioioso
 project: mdc gallery belgioioso
 title: Binocle - Mdc gallery belgioioso
 description: "In 2016 Massimo De Carlo opened his second gallery in Milan.

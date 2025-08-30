@@ -1,6 +1,6 @@
 ---
 layout: works
-hash: dancolen
+hash: dan-colen
 project: dan colen show
 title: Binocle - Dan colen show
 description: "‘Oh Shit’ is an art installation conceived by Dan Colen as part of ‘Karma’, his 1st solo show in Milan that took place at the Massimo De Carlo Gallery in 2010."
