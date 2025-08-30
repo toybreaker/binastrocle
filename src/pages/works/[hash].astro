@@ -27,12 +27,12 @@ const remainingImages = imageUrls.slice(1);
 ---
 
 <Layout title={work.data.title}>
-    <div class={'bungkus ' + work.data.project}>
+  <main class={'bungkus ' + work.data.project}>
     <!-- Display first image before h2 title -->
     {
       firstImage && (
         <div class='image_wrap'>
-            <Picture src={firstImage} alt={`${work.data.title} - TLDR`} loading="eager" />
+          <Picture src={firstImage} alt={`${work.data.title} - TLDR`} loading='eager' />
         </div>
       )
     }
@@ -45,16 +45,19 @@ const remainingImages = imageUrls.slice(1);
 
     <!-- For remaining images, use Picture component too -->
     <section class='image_content'>
-        {
-            remainingImages.map((imageObj, index) => (
-            <div class='image_wrap'>
-                <Picture src={imageObj} alt={`${work.data.title} - Image ${index + 2}`} loading='lazy' />
-            </div>
-            ))
-        }
+      {
+        remainingImages.map((imageObj, index) => (
+          <div class='image_wrap'>
+            <Picture
+              src={imageObj}
+              alt={`${work.data.title} - Image ${index + 2}`}
+              loading='lazy'
+            />
+          </div>
+        ))
+      }
 
-        {imageUrls.length === 0 && <p>No images found for this work.</p>}
+      {imageUrls.length === 0 && <p>No images found for this work.</p>}
     </section>
-  </div>
-
+  </main>
 </Layout>

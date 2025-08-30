@@ -1,9 +1,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d8e68f78-ce95-415b-b642-674bfc7dff3a/deploy-status)](https://app.netlify.com/projects/binocleastro/deploys)
 
 
-# [DONT CLICK ME](https://binocleastro.netlify.app)
+# [🫵🏼 DONT CLICK ME! ](https://binocleastro.netlify.app)
 
-## Astro 5+ with Pure JavaScript - Quick Reference
+## 💥 Astro 5+ with "A Piece Of Mind" - Quick Reference
 
 ### Project Structure
 ```

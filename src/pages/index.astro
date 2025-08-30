@@ -6,22 +6,46 @@ import Layout from '@layouts/Layout.astro';
 import { Picture } from 'astro:assets';
 import cover from '@p/cover.jpg';
 const pageTitle = 'BINOCLE | 2025 update';
-
 ---
 
 <style>
-  h1 {
-    color: orange;
+  /* Home styles */
+  body.home {
+    min-height: 100svh;
+  }
+
+  .pictureoftheday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pictureoftheday picture {
+    height: 100%;
+    max-height: 1920px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .showing_menu .pictureoftheday,
+  .showing_profile .pictureoftheday {
+    display: none;
   }
 </style>
 
 <Layout title={pageTitle}>
   <h1 class='hide'>BINOCLE</h1>
-  <div class='bungkus'>
+  <main class='bungkus'>
     <div class='home shots'>
-        <Picture src={cover} formats={['avif', 'webp']} alt='Binocle By Lorenzo Bini' layout='constrained' loading="eager" />
+      <Picture
+        src={cover}
+        formats={['avif', 'webp']}
+        alt='Binocle By Lorenzo Bini'
+        layout='constrained'
+        loading='eager'
+      />
     </div>
-  </div>
+  </main>
 
   <script>
     console.log('This ROKMA runs on the client');
