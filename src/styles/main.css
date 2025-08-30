@@ -5,7 +5,7 @@
   --bg_color: #fafafa;
   --link_color: #555;
   --link_color_light: #888;
-  --space: 1.5svh;
+  --space: 2.5svh;
 
   /* Breakpoints - use in container queries or JS */
   --mobile: 600px;
