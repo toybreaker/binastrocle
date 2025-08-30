@@ -26,6 +26,95 @@ const firstImage = imageUrls[0];
 const remainingImages = imageUrls.slice(1);
 ---
 
+<style>
+  .work_name {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: calc(var(--space) * 1.5);
+  }
+
+  @media (min-width: 601px) {
+    .work_name {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 801px) {
+    .work_name {
+      font-size: 3rem;
+    }
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+  .intro p {
+    text-align: justify;
+  }
+
+  @media (min-width: 801px) {
+    .intro {
+      text-align: justify;
+    }
+  }
+
+  .intro p {
+    margin-left: calc(var(--space) * 2);
+    margin-right: calc(var(--space) * 2);
+  }
+
+  .intro table {
+    padding: var(--space) calc(var(--space) * 2) calc(var(--space) * 2);
+    display: block;
+    font-size: 1rem;
+  }
+
+  .intro table a {
+    text-transform: none;
+  }
+
+  .intro table a:hover {
+    color: black;
+  }
+
+  .intro table td:first-child {
+    width: 13ch;
+    font-style: italic;
+  }
+
+  @media (max-width: 800px) {
+    .intro table td:first-child {
+      padding-top: 0.5rem;
+    }
+  }
+
+  .intro table td {
+    text-align: left;
+    padding-bottom: 0.25rem;
+    vertical-align: baseline;
+  }
+
+  @media (max-width: 800px) {
+    .intro table td {
+      width: fit-content;
+    }
+  }
+
+  .image_wrap {
+    width: 100%;
+    display: block;
+    margin: 0 0 calc(var(--space) * 0.5);
+  }
+
+  .image_wrap img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
 <Layout title={work.data.title}>
   <main class={'bungkus ' + work.data.project}>
     <!-- Display first image before h2 title -->

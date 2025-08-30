@@ -3,27 +3,27 @@ import Header from '@components/Header.astro';
 import Junglestar from '@components/Junglestar.astro';
 import Footer from '@components/Footer.astro';
 
-import Version from "@components/Version.astro";
+import Version from '@components/Version.astro';
 import '@styles/main.css';
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang='en'>
-    <Junglestar/>
-    <Version />
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <meta name="description" content="Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.">
-    <title>{title}</title>
+  <Junglestar />
+  <Version />
 
-  </head>
-  <body id="top">
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta
+    name='description'
+    content='Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.'
+  />
+  <title>{title}</title>
+
+  <body id='top'>
     <Header />
     <slot />
-    <!-- Page content goes here -->
-<Footer/>
-
+    <Footer />
   </body>
 </html>

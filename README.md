@@ -1,11 +1,16 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d8e68f78-ce95-415b-b642-674bfc7dff3a/deploy-status)](https://app.netlify.com/projects/binocleastro/deploys)
 
-
 # [🫵🏼 DONT CLICK ME! ](https://binocleastro.netlify.app)
 
-## 💥 Astro 5+ with "A Piece Of Mind" - Quick Reference
+## Astro🚀5 + a✌🏼peaceofmind
 
-### Project Structure
+### Features:
+- ✅ HTML5 semantics
+- ✅ Images optimized at build time by 🚀automatio
+- ✅ `<picture>` element respose
+
+### Project💥Structure
+
 ```
 my-astro-site/
 ├── src/
@@ -32,7 +37,7 @@ my-astro-site/
 └── biome.json          # Biome config (formats JS/CSS)
 ```
 
-## Core Files
+## Core💥Files
 
 ### `astro.config.mjs`
 ```javascript
@@ -102,7 +107,7 @@ export default defineConfig({
 }
 ```
 
-### `src/layouts/Layout.astro`
+### 🚀 `src/layouts/Layout.astro`
 ```astro
 ---
 // JavaScript here - NOT TypeScript!
@@ -124,7 +129,7 @@ const { title } = Astro.props;
 </html>
 ```
 
-### `src/pages/index.astro`
+### 🚀 `src/pages/index.astro`
 ```astro
 ---
 // JavaScript in the frontmatter
@@ -153,7 +158,7 @@ const items = ['First', 'Second', 'Third'];
 </Layout>
 ```
 
-### `src/components/Card.astro`
+### 🚀 `src/components/Card.astro`
 ```astro
 ---
 // Component JavaScript
@@ -175,7 +180,7 @@ const { title, href = "#" } = Astro.props;
 </style>
 ```
 
-### `src/styles/global.css`
+### 🚀 `src/styles/global.css`
 ```css
 /* Regular CSS file */
 * {
@@ -202,9 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-## Key Concepts
+## Key💥Concepts
 
-### 1. **Astro Components = HTML + JS + CSS**
+### 1. **Astro 🚀 Components = HTML + TS + CSS**
 ```astro
 ---
 // JavaScript goes here (runs at build time)
@@ -223,7 +228,7 @@ const data = "Hello";
 </script>
 ```
 
-### 2. **Import Your Existing JS/CSS**
+### 2. **Import Your Existing JS/TS/CSS**
 ```astro
 ---
 // Import from src/ for processing
@@ -238,19 +243,19 @@ import '../styles/global.css';
 <script is:inline src="/unprocessed-legacy.js"></script>
 ```
 
-### 3. **Static Assets in `public/` (NO processing)**
+### 3. **Static Assets in `public/` (NO 🚀 processing)**
 ```
 public/
 ├── images/logo.png     → /images/logo.png
 ├── fonts/custom.woff2  → /fonts/custom.woff2
-└── libs/jquery.min.js  → /libs/jquery.min.js (already minified)
+└── libs/jquery.forget.it → /libs/jquery.rip.js (already expired)
 ```
 
 **⚠️ Important:**
 - `src/` = Vite processes & optimizes your JS/CSS
 - `public/` = Served as-is, no processing at all
 
-### 4. **Dynamic Routes**
+### 4. **Dynamic 🚀 Routes**
 ```astro
 ---
 // src/pages/blog/[slug].astro
@@ -269,7 +274,7 @@ const { slug } = Astro.params;
 
 ## Migration from Jekyll/Static Site
 
-### Quick Start
+### Quick 🚀 Start
 ```bash
 # Create new Astro project
 pnpm create astro@latest my-site -- --template minimal --no-install --no-git
@@ -288,7 +293,7 @@ pnpm biome init
 pnpm dev
 ```
 
-### Migration Steps
+### Migration 🚀 Steps
 1. Copy your static files to `public/`
 2. Convert HTML files to `.astro` files in `src/pages/`
 3. Extract common HTML to `src/layouts/Layout.astro`
@@ -322,7 +327,7 @@ pnpm dev
 </html>
 ```
 
-### After (Astro)
+### After 🚀
 ```astro
 ---
 // src/pages/index.astro
@@ -339,4 +344,8 @@ pnpm dev
 </html>
 ```
 
-That's it! Your existing JS and CSS work as-is. No TypeScript needed!
+That's it, dude!
+---
+
+Well, from > 0.2.x It's TS,
+Old JS has been refactored with TS!

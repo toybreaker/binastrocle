@@ -115,11 +115,6 @@ svg {
   display: none;
 }
 
-.home #binocle_mini_logo,
-.showing_menu #binocle_mini_logo {
-  display: block;
-}
-
 /* Header styles */
 .header {
   display: block;
@@ -155,58 +150,6 @@ svg {
     width: 640px;
     height: auto;
   }
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: var(--space) 0;
-}
-
-.menu li {
-  text-align: center;
-  margin: 0.5rem 0;
-}
-
-.menu li a {
-  display: block;
-  width: 100%;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1rem;
-}
-
-@media (min-width: 601px) {
-  .menu li a {
-    font-size: 1.5rem;
-  }
-}
-
-.menu li a:hover {
-  color: var(--link_color_light);
-}
-
-/* Home styles */
-body.home {
-  min-height: 100vh;
-}
-
-.pictureoftheday {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pictureoftheday picture {
-  height: 100%;
-  max-height: 1920px;
-  width: auto;
-  object-fit: cover;
-}
-
-.showing_menu .pictureoftheday,
-.showing_profile .pictureoftheday {
-  display: none;
 }
 
 /* Profile styles */
@@ -282,94 +225,6 @@ body.home {
 /* .showing-profile .footer {
   display: none;
 } */
-
-/* Works styles */
-.work_name {
-  font-size: 2rem;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
-  padding-top: calc(var( --space) * 1.5);
-}
-
-@media (min-width: 601px) {
-  .work_name {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 801px) {
-  .work_name {
-    font-size: 3rem;
-  }
-}
-
-.intro {
-  font-size: 1.1rem;
-  text-align: left;
-}
-.intro p {
-    text-align: justify;
-}
-
-@media (min-width: 801px) {
-  .intro {
-    text-align: justify;
-  }
-}
-
-.intro p {
-  margin-left: calc(var(--space) * 2);
-  margin-right: calc(var(--space) * 2);
-}
-
-.intro table {
-  padding: var(--space) calc(var(--space) * 2) calc(var(--space) * 2);
-  display: block;
-  font-size: 1rem;
-}
-
-.intro table a {
-  text-transform: none;
-}
-
-.intro table a:hover {
-  color: black;
-}
-
-.intro table td:first-child {
-  width: 13ch;
-  font-style: italic;
-}
-
-@media (max-width: 800px) {
-  .intro table td:first-child {
-    padding-top: 0.5rem;
-  }
-}
-
-.intro table td {
-  text-align: left;
-  padding-bottom: 0.25rem;
-  vertical-align: baseline;
-}
-
-@media (max-width: 800px) {
-  .intro table td {
-    width: fit-content;
-  }
-}
-
-.image_wrap {
-  width: 100%;
-  display: block;
-  margin: 0 0 calc(var(--space) * 0.5);
-}
-
-.image_wrap img {
-  width: 100%;
-  height: auto;
-}
 
 /* Shots styles */
 .shots {

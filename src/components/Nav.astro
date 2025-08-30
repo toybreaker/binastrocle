@@ -1,0 +1,68 @@
+---
+// src/components/Nav.astro
+---
+<style>
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: var(--space) 0;
+}
+
+.menu li {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.menu li a {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (min-width: 601px) {
+  .menu li a {
+    font-size: 1.5rem;
+  }
+}
+
+.menu li a:hover {
+  color: var(--link_color_light);
+}
+
+</style>
+<nav>
+    <ul class="menu group " id="menu">
+        <li><a href="/works/potoccostand2024/">potocco stand 2024</a></li>
+        <li><a href="/works/tacchinistand2024/">tacchini stand 2024</a></li>
+        <li><a href="/works/spa/">spa</a></li>
+        <li><a href="/works/tacchini/">tacchini stand 2022</a></li>
+        <li><a href="/works/officecvm/"> office cv m</a></li>
+        <li><a href="/works/vico-magistretti-architetto-milanese/">vico magistretti architetto milanese</a></li>
+        <li><a href="/works/housebgm/"> house bg m</a></li>
+        <li><a href="/works/jcricketstorebeijing/">j.cricket store beijing</a></li>
+        <li><a href="/works/sixtableaux/">six tableaux</a></li>
+        <li><a href="/works/mdcgallerylombardia/">mdc gallery lombardia</a></li>
+        <li><a href="/works/housebm/">house b m</a></li>
+        <li><a href="/works/mdcgallerybelgioioso/">mdc gallery belgioioso</a></li>
+        <li><a href="/works/studiobinocle/">studio binocle</a></li>
+        <li><a href="/works/housedm/">house d m</a></li>
+        <li><a href="/works/basementgo/">basement g o</a></li>
+        <li><a href="/works/acircleinasquare/" class="active">a circle in a square</a></li>
+        <li><a href="/works/spazio33/">spazio33</a></li>
+        <li><a href="/works/zumbini/">zumbini offices</a></li>
+        <li><a href="/works/dancolen/">dan colen show</a></li>
+        <li><a href="/works/nikestadium/">nike stadium</a></li>
+        <li><a href="/works/piombo/">piombo stores</a></li>
+        <li><a href="/works/kosho/">kosho</a></li>
+        <li><a href="/works/unabox/">unabox</a></li>
+        <li><a href="/works/yanpeiming/">atelier yan pei ming</a></li>
+        <li><a href="/works/bastardstore/">bastard store</a></li>
+        <li><a href="/works/gardenshe/">gardens h e</a></li>
+        <li><a href="/works/patiovm/">patio v m</a></li>
+        <li><a href="/works/housedl/">house d l</a></li>
+        <li><a href="/works/housepdf/">house pdf</a></li>
+    </ul>
+</nav>
