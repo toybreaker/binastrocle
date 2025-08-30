@@ -1,6 +1,6 @@
 ---
 layout: works
-hash: stadi
+hash: stadi-architecture-of-a-myth
 project: STADI ARCHITETTURA E MITO
 title: Binocle - STADI ARCHITETTURA E MITO
 description: 'For the exhibition: Stadi. Architecture of a Myth. Stadium architecture and social significance throughout history. Organised by the MAXXI Museum in Rome.'

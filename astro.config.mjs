@@ -31,6 +31,13 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  redirects: {
+    // No root hitting. No index needed. Astro will take care of it.
+    "/works": {
+      status: 302,
+      destination: "/",
+    },
+  },
   vite: {
       resolve: {
         alias: {
