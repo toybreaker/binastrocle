@@ -4,6 +4,7 @@ hash: gardenshe
 project: gardens h e
 title: Binocle - Gardens h e
 description: "Transformation of a 7.500 sqm area around an old farmstead in the North East of Italy into the private garden of a couple of art collectors."
+year: 2008
 ---
 
 Transformation of a 7.500 sqm area around an old farmstead in the North East of Italy into the private garden of a couple of art collectors.

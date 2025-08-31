@@ -5,6 +5,7 @@ project: atelier yan pei ming
 title: Binocle - Atelier yan pei ming
 description: "Proposal for the conversion of an old industrial warehouse into the new atelier, archive and gallery for Yan Pei-Ming, a Chinese painter based  near Paris."
 program: atelier
+year: 2008
 ---
 
 Proposal for the conversion of an old industrial warehouse into the new atelier, archive and gallery for Yan Pei-Ming, a Chinese painter based in Ivry sur Seine, near Paris.

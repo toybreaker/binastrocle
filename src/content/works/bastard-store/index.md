@@ -4,8 +4,11 @@ hash: bastard-store
 project: bastard store
 title: Binocle - Bastard store
 description: 'Conversion of a former movie theater into the headquarter of an Italian company founded by skateboarders dealing clothing for boarders under the brand Bastard.'
-program: ["office", "retail]
-"---
+year: 2008
+program:
+ - office
+ - retail
+---
 
 Conversion of a former movie theater into the headquarter of an Italian company founded by skateboarders to design, produce and distribute clothing and accessories for skateboarders and snowboarders under the brand Bastard.
 
