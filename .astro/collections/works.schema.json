@@ -19,6 +19,25 @@
         "description": {
           "type": "string"
         },
+        "program": {
+          "type": "string",
+          "enum": [
+            "temporary-structure",
+            "art-space",
+            "patio",
+            "gift",
+            "furniture",
+            "atelier",
+            "office",
+            "art-installation",
+            "bar",
+            "restaurant",
+            "bookstore",
+            "radio-station",
+            "gallery",
+            "exibition-design"
+          ]
+        },
         "$schema": {
           "type": "string"
         }

@@ -4,6 +4,7 @@ hash: a-circle-in-a-square
 project: a circle in a square
 title: Binocle - A circle in a square
 description: "Art installation for the Satoyama Museum of Contemporary Art Kinare consisting of a bar, a restaurant, a bookstore and a local radio station."
+program: ["bar", "restaurant", "bookstore", "radio-station"]
 ---
 
 Art installation for the Satoyama Museum of Contemporary Art Kinare consisting of a bar, a restaurant, a bookstore and a local radio station.
@@ -14,10 +15,10 @@ Built in occasion of the Echigo-Tsumari Art Triennale 2012 the project was devel
 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|
-| Location:      | Tokamachi, Japan                                        |
+| Location:      | Tokamachi, Japan |
 | Client:        | Art Front Gallery, Tokyo / Echigo-Tsumari Art Triennale |
-| Year:          | 2011-2012                                               |
-| Status:        | Completed                                               |
-| Program:       | Bar / Restaurant / Bookstore / Radio Station            |
-| Collaborators: | Massimo Bartolini (artist)                              |
-| Photographs:   | Osamu Nakamura                                          |
+| Year:          | 2011-2012 |
+| Status:        | Completed |
+| Program:       | Bar / Restaurant / Bookstore / Radio Station |
+| Collaborators: | Massimo Bartolini (artist) |
+| Photographs:   | Osamu Nakamura |

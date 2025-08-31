@@ -4,6 +4,7 @@ hash: piombo
 project: piombo stores
 title: Binocle - Piombo stores
 description: "This winning but unfulfilled proposal, conceived in 2010, defined and worked out all the fundamental elements for Piombo’s future stores."
+program: retail
 ---
 
 This winning but unfulfilled proposal, conceived in 2010 in occasion of an invited competition, defined and worked out all the fundamental elements for Piombo’s future stores.
