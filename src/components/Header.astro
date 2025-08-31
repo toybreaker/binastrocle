@@ -3,6 +3,55 @@
 import Nav from '@components/Nav.astro';
 import Profile from '@components/Profile.astro';
 ---
+<style>
+
+/* Header styles */
+header {
+  display: block;
+  margin: var(--space) 0;
+  padding-top: calc(var(--space) * 2.5);
+  padding-bottom: calc(var(--space) * 1);
+}
+
+.showing_menu .header,
+.showing_profile .header {
+  height: auto;
+}
+
+.logo {
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.logo svg {
+  user-select: none;
+  height: 12vw;
+  max-width: 640px;
+}
+
+@media (min-width: 801px) {
+  .logo svg {
+    width: 640px;
+    height: auto;
+  }
+}
+
+
+.showing_menu #see_more_icon {
+  display: none;
+}
+
+:not(.showing_menu) #binocle_mini_logo {
+  display: none;
+}
+
+</style>
 
 <header>
     <div class='logo' id='toggle_works'>

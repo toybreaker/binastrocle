@@ -1,6 +1,6 @@
 // src/utils/main.ts
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('BINastrOCLE MENU loaded!')
+  console.log('BINastrOCLE NAV loaded!')
   // Auto-initialize the nav toggle
   initializeNavToggle();
 })
@@ -32,6 +32,20 @@ export function initializeNavToggle(): void {
             }
             toggleClass(document.getElementById('menu'), 'hide');
             toggleClass(document.body, 'showing_menu');
+        });
+    }
+}
+
+export function profileToggle(): void {
+    const toggleButton = document.getElementById('toggle_about_binocle');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            if (document.body.classList.contains('showing_menu')) {
+                toggleClass(document.getElementById('menu'), 'hide');
+                toggleClass(document.body, 'showing_menu');
+            }
+            toggleClass(document.getElementById('profile'), 'hide');
+            toggleClass(document.body, 'showing_profile');
         });
     }
 }

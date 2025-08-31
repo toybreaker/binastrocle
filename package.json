@@ -1,6 +1,6 @@
 {
   "name": "binastrocle",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -19,7 +19,7 @@
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "astro": "^5.13.4",
+    "astro": "^5.13.5",
     "sharp": "^0.34.3",
     "typescript": "^5.9.2"
   },

@@ -77,154 +77,7 @@ svg {
   }
 }
 
-.text_content {
-  max-width: 960px;
-}
 
-@media (min-width: 801px) {
-  .text_content {
-    margin: 0 auto;
-  }
-}
-
-.site_title {
-  text-transform: uppercase;
-}
-
-.go_home {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.go_home svg {
-  height: 2.75rem;
-  width: 2.75rem;
-}
-
-.go_home:hover {
-  cursor: pointer;
-}
-
-.showing_menu #see_more_icon {
-  display: none;
-}
-
-:not(.showing_menu) #binocle_mini_logo {
-  display: none;
-}
-
-/* Header styles */
-.header {
-  display: block;
-  margin: var(--space) 0;
-  padding-top: calc(var(--space) * 2.5);
-  padding-bottom: calc(var(--space) * 1);
-}
-
-.showing_menu .header,
-.showing_profile .header {
-  height: auto;
-}
-
-.logo {
-  user-select: none;
-  width: 100%;
-  text-align: center;
-  display: block;
-}
-
-.logo:hover {
-  cursor: pointer;
-}
-
-.logo svg {
-  user-select: none;
-  height: 12vw;
-  max-width: 640px;
-}
-
-@media (min-width: 801px) {
-  .logo svg {
-    width: 640px;
-    height: auto;
-  }
-}
-
-/* Profile styles */
-.profile {
-  max-width: 100%;
-  margin: var(--space) auto 0;
-  font-size: 1rem;
-  text-align: left;
-  padding: 0 var(--space);
-}
-
-@media (min-width: 601px) {
-  .profile {
-    text-align: justify;
-  }
-}
-
-.profile .profile_photo {
-  width: 100%;
-  display: block;
-  float: none;
-  margin: 0 auto 2.5rem;
-  position: relative;
-  max-width: 640px;
-}
-
-.profile .curri_link {
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-.profile .contact {
-  padding-top: calc(var(--space) * 0.5);
-  padding-bottom: calc(var(--space) * 0.5);
-  text-align: center;
-}
-
-.profile strong {
-  font-weight: 400;
-}
-
-.profile em {
-  display: block;
-  width: 100%;
-  font-style: normal;
-  text-align: center;
-}
-
-.profile p {
-  padding: 0 var(--space);
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 640px;
-}
-
-@media (min-width: 601px) {
-  .profile p {
-    padding: 0 calc(var(--space) * 0.5);
-  }
-}
-
-@media (min-width: 801px) {
-  .profile p {
-    padding: 0;
-  }
-}
-
-.contact a:not(.instagram) {
-  text-transform: lowercase;
-}
-
-/* .showing-profile .footer {
-  display: none;
-} */
 
 /* Shots styles */
 .shots {
@@ -243,4 +96,23 @@ svg {
 
 .shots:nth-child(3) {
   order: -1;
+}
+
+
+
+/* HERE COS IT'S USED IN MORE THAN 1 PAGE */
+.go_home {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go_home svg {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+.go_home:hover {
+  cursor: pointer;
 }
