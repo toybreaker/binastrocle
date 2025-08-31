@@ -8,8 +8,6 @@ progran: exibition-design
 year: 2024
 ---
 
-POTOCCO STAND 2024
-
 The Potocco stand for the 2024 Milan Furniture Fair occupies an area of 400 sqm. To allow the display and valorisation of a multiplicity of products ranging from indoor to outdoor, the square space was divided into 9 identical areas which gave rise to a system of rooms. Four passages located on their corners put each hall in communication with the others and contribute to the creation of a continuous and separated space at the same time. Six round walls break the rigidity of the original rule and provide each room with at least two different backdrops (straight and curved walls, corners and bends) and are a spatial device to open gaps that allow glimpses of the internal display to visitors who walk along the perimeter of the booth.
 
 |:-------------------|:---------------------------------------------------------|

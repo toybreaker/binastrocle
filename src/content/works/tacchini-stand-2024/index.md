@@ -1,6 +1,6 @@
 ---
 layout: works
-hash: tacchinistand2024
+hash: tacchini-stand-2024
 project: tacchini stand 2024
 title: Binocle - Tacchini stand 2024
 description: 'To present the Tacchini brand  we have conceived a stand that alludes to the generous and well-proportioned space of an elegant urban apartment'
