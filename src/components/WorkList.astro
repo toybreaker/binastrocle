@@ -1,0 +1,87 @@
+---
+// src/components/WorkList.astro
+import { getCollection } from 'astro:content';
+
+// Get all works from the content collection
+const works = await getCollection('works');
+
+// Sort works by year descending (newest first), then by project name as secondary sort
+const sortedWorks = works.sort((a, b) => {
+  // First sort by year descending
+  if (b.data.year !== a.data.year) {
+    return b.data.year - a.data.year;
+  }
+  // If years are the same, sort by project name alphabetically
+  return a.data.project.localeCompare(b.data.project);
+});
+
+// Get current page path for active state (optional)
+const currentPath = Astro.url.pathname;
+---
+
+<style>
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: var(--space) 0;
+
+    li {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+
+    li a {
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 1rem;
+      position: relative;
+    }
+  }
+  @media (min-width: 601px) {
+    .menu li a {
+      font-size: 1.5rem;
+    }
+  }
+
+  .menu li a:hover {
+    color: var(--link_color_light);
+  }
+
+  .menu li a.active {
+    color: var(--link_color);
+  }
+
+  .menu li a.active::before {
+    content: '⏤';
+    padding-inline: 2rem;
+    position: absolute;
+    top: 0;
+    left: 2svw;
+  }
+  .menu li a.active::after {
+    content: '⏤';
+    padding-inline: 2rem;
+    position: absolute;
+    top: 0;
+    right: 2svw;
+  }
+</style>
+
+<ul class='menu'>
+  {
+    sortedWorks.map((work) => {
+      const workUrl = `/works/${work.data.hash}`;
+      const isActive = currentPath === workUrl;
+
+      return (
+        <li>
+          <a href={workUrl} class={isActive ? 'active' : ''}>
+            {work.data.project}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

@@ -1,32 +1,38 @@
 ---
 // src/layouts/Layout.astro
-import Header from '@components/Header.astro';
-import Nav from '@components/Nav.astro';
 import Junglestar from '@components/Junglestar.astro';
-import Footer from '@components/Footer.astro';
-
 import Version from '@components/Version.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
 import '@styles/main.css';
-const { title } = Astro.props;
----
 
+export interface Props {
+  title: string;
+  bodyClass?: string | undefined;
+}
+
+const { title,
+  bodyClass = "default", } = Astro.props;
+---
 <!doctype html>
 <html lang='en'>
-  <Junglestar />
-  <Version />
-
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta
-    name='description'
-    content='Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.'
-  />
-  <title>{title}</title>
-
-  <body id='top'>
+    <Junglestar />
+    <head>
+        <Version />
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta
+            name='description'
+            content='Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.'
+        />
+        <title>{title}</title>
+    </head>
+  <body id='top' class={bodyClass}>
     <Header />
-    <Nav />
     <slot />
     <Footer />
+    <script>
+        console.log('This ROKMA|CLIENT runs on the client, the browser that is!');
+    </script>
   </body>
 </html>

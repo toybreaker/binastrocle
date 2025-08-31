@@ -33,8 +33,10 @@ const remainingImages = imageUrls.slice(1);
     text-align: center;
     text-transform: uppercase;
     padding-top: calc(var(--space) * 1.5);
+    padding-inline: calc(var(--space) * 1);
     text-wrap: balance;
     text-wrap: pretty; /* fallback */
+    white-space: pre-line; /* so break in frontmatter get respected: */
   }
 
   @media (min-width: 601px) {

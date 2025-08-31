@@ -1,11 +1,13 @@
 ---
 // src/pages/index.astro
-console.log('this ROKMA runs in your terminal, not the browser!');
+console.log('this ROKMA|DEV runs in your terminal, not in the browser, neither on the server!');
+console.log('SOURCE_FILE: src/pages/index.astro');
 
 import Layout from '@layouts/Layout.astro';
 import { Picture } from 'astro:assets';
 import cover from '@p/cover.jpg';
 const pageTitle = 'BINOCLE | 2025 update';
+const bodyClass = "home"
 ---
 
 <style>
@@ -38,21 +40,19 @@ const pageTitle = 'BINOCLE | 2025 update';
   }
 </style>
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} bodyClass={bodyClass}>
   <h1 class='hide'>BINOCLE</h1>
   <main class='bungkus'>
     <div class='home shots'>
-      <Picture
-        src={cover}
-        formats={['avif', 'webp']}
-        alt='Binocle By Lorenzo Bini'
-        layout='constrained'
-        loading='eager'
-      />
+        <div class="pictureoftheday">
+            <Picture
+                src={cover}
+                formats={['avif', 'webp']}
+                alt='Binocle By Lorenzo Bini'
+                layout='constrained'
+                loading='eager'
+            />
+        </div>
     </div>
   </main>
-
-  <script>
-    console.log('This ROKMA runs on the client');
-  </script>
 </Layout>

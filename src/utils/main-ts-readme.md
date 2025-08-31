@@ -72,8 +72,9 @@ import Layout from '@layouts/Layout.astro';
 
 ### Import Examples
 
-**Import individual functions:**
-```astro
+**Import individual functions (Astro):**
+
+``` 
 ---
 // Import just the toggle utility
 import { toggleClass } from '@utils/main';
@@ -85,7 +86,8 @@ toggleClass(element, 'active');
 ```
 
 **Import the nav initializer:**
-```astro
+
+```
 ---
 // Import the nav setup function
 import { initializeNavToggle } from '@utils/main';
@@ -96,7 +98,8 @@ initializeNavToggle();
 ```
 
 **Import both functions:**
-```astro
+
+```
 ---
 import { toggleClass, initializeNavToggle } from '@utils/main';
 
@@ -110,7 +113,7 @@ initializeNavToggle();
 
 If you don't have path aliases set up:
 
-```astro
+```
 ---
 // Relative import from pages directory
 import { initializeNavToggle } from '../utils/main';

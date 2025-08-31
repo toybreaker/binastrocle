@@ -55,7 +55,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <nav>
-  <ul class='menu group' id='menu'>
+  <ul class='menu hide' id='menu'>
     {
       sortedWorks.map((work) => {
         const workUrl = `/works/${work.data.hash}`;
@@ -71,8 +71,8 @@ const currentPath = Astro.url.pathname;
       })
     }
   </ul>
-</nav>
 
+</nav>
 <script>
   import { initializeNavToggle } from '@utils/main';
   initializeNavToggle();
