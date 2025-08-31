@@ -4,6 +4,7 @@ hash: housebm
 project: house b m
 title: Binocle - House b m
 description: "Originally a family house, this square-plan building located at a crossroads and flanked by a private garden housed a Montessori kindergarten. Turned residence."
+year: 2019
 ---
 
 Originally built as a family house, this square-plan building located at a crossroads and flanked by a private garden was soon adapted to house a Montessori kindergarten.

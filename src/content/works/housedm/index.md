@@ -4,6 +4,7 @@ hash: housedm
 project: house d m
 title: Binocle - House d m
 description: "Through brutal demolitions, hardy excavations and daring structural steelworks, an existing row house with a fairly small footprint has been utterly transformed"
+year: 2016
 ---
 
 Through brutal demolitions, hardy excavations and daring structural steelworks, an existing row house with a fairly small footprint has been utterly transformed inside - though barely restored outside - and brought to new life.

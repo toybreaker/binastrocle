@@ -5,6 +5,7 @@ project: studio binocle
 title: Binocle - Studio binocle
 description: "Our office is located atop of an unusual building from the 20’s known by people from Milan as ‘Cremlino’. The dome, under which we moved in 2014, measures 9m..."
 program: office
+year: 2014
 ---
 
 Our office is located atop of an unusual building from the 20’s known by people from Milan as ‘Cremlino’. The dome, under which we moved in 2014, measures 9 m in diameter, 5.5 m in height, overlooks the entire city and culminates into a 12 m spire.

@@ -5,6 +5,7 @@ project: basement g o
 title: Binocle - Basement g o
 description: "Conversion of the 90sqm basement of villa from a small town into the private archive, studio and exhibition space for a couple of entrepreneurs and art collectors."
 program: gallery
+year: 2012
 ---
 
 Conversion of the 90 sqm basement of villa from a small town into the private archive, studio and exhibition space for a couple of entrepreneurs and art collectors.
