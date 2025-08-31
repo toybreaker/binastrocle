@@ -5,7 +5,6 @@ project: mdc gallery lombardia
 title: Binocle - Mdc gallery lombardia
 description: "In 2019 Massimo De Carlo Gallery moved its headquarters into a former apartment inside Casa Corbellini-Wassermann, a modernist building by Piero Portaluppi."
 program: gallery
-year: 2019
 ---
 
 In 2019 Massimo De Carlo Gallery moved its headquarters into a former apartment inside Casa Corbellini-Wassermann, a modernist building designed by Piero Portaluppi and built in Milan between 1934 and 1936.

@@ -4,7 +4,6 @@ hash: housepdf
 project: house pdf
 title: Binocle - House pdf
 description: "Renovation of a 40 sqm studio flat on the top floor of a condominium set in a former convent from the beginning of the last century."
-year: 2004
 ---
 
 Renovation of a 40 sqm studio flat on the top floor of a condominium set in a former convent from the beginning of the last century.

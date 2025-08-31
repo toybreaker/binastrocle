@@ -19,20 +19,23 @@
         "description": {
           "type": "string"
         },
-        "year": {
-          "type": "number"
-        },
         "program": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
+          "type": "string",
+          "enum": [
+            "temporary-structure",
+            "art-space",
+            "patio",
+            "gift",
+            "furniture",
+            "atelier",
+            "office",
+            "art-installation",
+            "bar",
+            "restaurant",
+            "bookstore",
+            "radio-station",
+            "gallery",
+            "exibition-design"
           ]
         },
         "$schema": {
@@ -44,8 +47,7 @@
         "hash",
         "project",
         "title",
-        "description",
-        "year"
+        "description"
       ],
       "additionalProperties": false
     }

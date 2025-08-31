@@ -5,7 +5,6 @@ project: tacchini stand 2024
 title: Binocle - Tacchini stand 2024
 description: 'To present the Tacchini brand  we have conceived a stand that alludes to the generous and well-proportioned space of an elegant urban apartment'
 program: exhibition-design
-year: 2024
 ---
 
 TACCHINI STAND 2024

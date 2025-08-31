@@ -6,67 +6,65 @@ import { getCollection } from 'astro:content';
 const works = await getCollection('works');
 
 // Sort works by project name for consistent ordering
-const sortedWorks = works.sort((a, b) => a.data.project.localeCompare(b.data.project));
+const sortedWorks = works.sort((a, b) =>
+  a.data.project.localeCompare(b.data.project)
+);
 
 // Get current page path for active state (optional)
 const currentPath = Astro.url.pathname;
 ---
 
 <style>
-  .menu {
-    list-style: none;
-    padding: 0;
-    margin: var(--space) 0;
-  }
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: var(--space) 0;
+}
 
-  .menu li {
-    text-align: center;
-    margin: 0.5rem 0;
-  }
+.menu li {
+  text-align: center;
+  margin: 0.5rem 0;
+}
 
+.menu li a {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (min-width: 601px) {
   .menu li a {
-    display: block;
-    width: 100%;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
+}
 
-  @media (min-width: 601px) {
-    .menu li a {
-      font-size: 1.5rem;
-    }
-  }
+.menu li a:hover {
+  color: var(--link_color_light);
+}
 
-  .menu li a:hover {
-    color: var(--link_color_light);
-  }
-
-  .menu li a.active {
-    color: var(--link_color_light);
-  }
+.menu li a.active {
+  color: var(--link_color_light);
+}
 </style>
 
 <nav>
-  <ul class='menu group' id='menu'>
-    {
-      sortedWorks.map((work) => {
-        const workUrl = `/works/${work.data.hash}`;
-        const isActive = currentPath === workUrl;
+  <ul class="menu group" id="menu">
+    {sortedWorks.map((work) => {
+      const workUrl = `/works/${work.data.hash}`;
+      const isActive = currentPath === workUrl;
 
-        return (
-          <li>
-            <a href={workUrl} class={isActive ? 'active' : ''}>
-              {work.data.project}
-            </a>
-          </li>
-        );
-      })
-    }
+      return (
+        <li>
+          <a
+            href={workUrl}
+            class={isActive ? 'active' : ''}
+          >
+            {work.data.project}
+          </a>
+        </li>
+      );
+    })}
   </ul>
 </nav>
-
-<script>
-  import { initializeNavToggle } from '@utils/main';
-  initializeNavToggle();
-</script>

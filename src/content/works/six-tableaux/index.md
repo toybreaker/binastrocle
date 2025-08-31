@@ -5,7 +5,6 @@ project: six tableaux
 title: Binocle - Six tableaux
 description: "A series of marble tables characterised by an irregular shapes obtained by retracing details or portions of works by six different contemporary artists."
 progran: furniture
-year: 2019
 ---
 
 A series of marble tables characterised by an irregular shapes obtained by retracing details or portions of works by six different contemporary artists.

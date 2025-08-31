@@ -5,7 +5,6 @@ project: patio v m
 title: Binocle - Patio v m
 description: "This small patio is the center around which the Milanese flat of an italian architect and his French wife is articulated and organized."
 program: patio
-year: 2006
 ---
 
 This small patio is the center around which the Milanese flat of an italian architect and his French wife is articulated and organized.

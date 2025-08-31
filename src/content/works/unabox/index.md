@@ -5,7 +5,6 @@ project: unabox
 title: Binocle - Unabox
 description: "UnaBox is a tiny secret case, inspired by an even smaller Indian box, designed and built as a gift for a 6 months old baby. Made of olive tree wood..."
 program: gift
-year: 2009
 ---
 
 [UnaBox](https://www.youtube.com/watch?v=MlnLVAajYLs) is a tiny secret case - inspired by an even smaller Indian box - that was designed and built as a gift for a six months old baby.
