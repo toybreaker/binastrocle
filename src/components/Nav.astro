@@ -5,8 +5,15 @@ import { getCollection } from 'astro:content';
 // Get all works from the content collection
 const works = await getCollection('works');
 
-// Sort works by project name for consistent ordering
-const sortedWorks = works.sort((a, b) => a.data.project.localeCompare(b.data.project));
+// Sort works by year descending (newest first), then by project name as secondary sort
+const sortedWorks = works.sort((a, b) => {
+  // First sort by year descending
+  if (b.data.year !== a.data.year) {
+    return b.data.year - a.data.year;
+  }
+  // If years are the same, sort by project name alphabetically
+  return a.data.project.localeCompare(b.data.project);
+});
 
 // Get current page path for active state (optional)
 const currentPath = Astro.url.pathname;

@@ -9,7 +9,6 @@
       //one level deep
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@scripts/*": ["src/scripts/*"],
       "@utils*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/assets/*"],

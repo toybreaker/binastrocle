@@ -16,7 +16,8 @@ export function toggleClass(element: HTMLElement | null, className: string): voi
         classString += ' ' + className;
     }
     else {
-        classString = classString.substr(0, nameIndex) + classString.substr(nameIndex+className.length);
+        // Replace deprecated substr with substring
+        classString = classString.substring(0, nameIndex) + classString.substring(nameIndex + className.length);
     }
     element.className = classString;
 }
