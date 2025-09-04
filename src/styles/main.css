@@ -141,3 +141,10 @@ svg {
 body.home .go_home.see_more {
     display: none;
 }
+
+.showing_profile main {
+    display: none;
+}
+.showing_profile .go_home.see_more {
+    display: none;
+}

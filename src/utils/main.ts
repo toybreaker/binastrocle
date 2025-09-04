@@ -31,7 +31,6 @@ export function initializeNavToggle(): void {
                 toggleClass(document.getElementById('profile'), 'hide');
                 toggleClass(document.body, 'showing_profile');
             }
-            // toggleClass(document.getElementById('toggle_about_binocle'), 'hide');
             toggleClass(document.getElementById('main'), 'hide');
             toggleClass(document.getElementById('menu'), 'hide');
             toggleClass(document.body, 'showing_menu');
@@ -47,7 +46,6 @@ export function alsoInitializeNavToggle(): void {
                 toggleClass(document.getElementById('profile'), 'hide');
                 toggleClass(document.body, 'showing_profile');
             }
-            // toggleClass(document.getElementById('toggle_about_binocle'), 'hide');
             toggleClass(document.getElementById('main'), 'hide');
             toggleClass(document.getElementById('menu'), 'hide');
             toggleClass(document.body, 'showing_menu');
