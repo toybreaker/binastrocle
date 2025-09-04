@@ -7,7 +7,7 @@ import Layout from '@layouts/Layout.astro';
 import { Picture } from 'astro:assets';
 import cover from '@p/cover.jpg';
 const pageTitle = 'BINOCLE | 2025 update';
-const bodyClass = "home"
+const bodyClass = 'home';
 ---
 
 <style>
@@ -25,34 +25,34 @@ const bodyClass = "home"
     display: flex;
     align-items: center;
     justify-content: center;
+    picture {
+      height: 100%;
+      max-height: 1920px;
+      width: auto;
+      object-fit: cover;
+    }
   }
-
-  .pictureoftheday picture {
-    height: 100%;
-    max-height: 1920px;
-    width: auto;
-    object-fit: cover;
-  }
-
   .showing_menu .pictureoftheday,
   .showing_profile .pictureoftheday {
     display: none;
   }
+
+
 </style>
 
 <Layout title={pageTitle} bodyClass={bodyClass}>
   <h1 class='hide'>BINOCLE</h1>
   <main class='bungkus'>
-    <div class='home shots'>
-        <div class="pictureoftheday">
-            <Picture
-                src={cover}
-                formats={['avif', 'webp']}
-                alt='Binocle By Lorenzo Bini'
-                layout='constrained'
-                loading='eager'
-            />
-        </div>
+    <div class='home shots' id='also_toggle_works'>
+      <div class='pictureoftheday'>
+        <Picture
+          src={cover}
+          formats={['avif', 'webp']}
+          alt='Binocle By Lorenzo Bini'
+          layout='constrained'
+          loading='eager'
+        />
+      </div>
     </div>
   </main>
 </Layout>

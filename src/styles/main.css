@@ -116,3 +116,8 @@ svg {
 .go_home:hover {
   cursor: pointer;
 }
+
+
+.work #toggle_about_binocle {
+    display: none;
+}

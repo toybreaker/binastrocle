@@ -1,43 +1,40 @@
 ---
 // src/components/Profile.astro
+import { Picture } from 'astro:assets';
+import profileImage from '@p/profile.jpg';
 ---
 
 <style>
-    .profile {
-        text-align: center;
-    }
+  .text_content {
+    max-width: 960px;
+  }
 
+  @media (min-width: 801px) {
     .text_content {
-      max-width: 960px;
+      margin: 0 auto;
     }
+  }
 
-    @media (min-width: 801px) {
-      .text_content {
-        margin: 0 auto;
-      }
-    }
+  .work_name {
+      text-align: center;
+  }
 
-    .site_title {
-      text-transform: uppercase;
-    }
+  .profile {
+    max-width: 100%;
+    margin: var(--space) auto 0;
+    font-size: 1rem;
+    text-align: left;
+    padding: 0 var(--space);
+  }
 
-
-    /* Profile styles */
+  @media (min-width: 601px) {
     .profile {
-      max-width: 100%;
-      margin: var(--space) auto 0;
-      font-size: 1rem;
-      text-align: left;
-      padding: 0 var(--space);
+      text-align: justify;
     }
+  }
 
-    @media (min-width: 601px) {
-      .profile {
-        text-align: justify;
-      }
-    }
-
-    .profile .profile_photo {
+  .profile {
+    .profile_photo {
       width: 100%;
       display: block;
       float: none;
@@ -46,59 +43,64 @@
       max-width: 640px;
     }
 
-    .profile .curri_link {
+    .curri_link {
       display: block;
       text-align: center;
       width: 100%;
     }
 
-    .profile .contact {
+    .contact {
       padding-top: calc(var(--space) * 0.5);
       padding-bottom: calc(var(--space) * 0.5);
       text-align: center;
     }
 
-    .profile strong {
+    strong {
       font-weight: 400;
     }
 
-    .profile em {
+    em {
       display: block;
       width: 100%;
       font-style: normal;
       text-align: center;
     }
 
-    .profile p {
+    p {
       padding: 0 var(--space);
       margin-left: auto;
       margin-right: auto;
       max-width: 640px;
     }
+  }
 
-    @media (min-width: 601px) {
-      .profile p {
-        padding: 0 calc(var(--space) * 0.5);
-      }
+  @media (min-width: 601px) {
+    .profile p {
+      padding: 0 calc(var(--space) * 0.5);
     }
+  }
 
-    @media (min-width: 801px) {
-      .profile p {
-        padding: 0;
-      }
+  @media (min-width: 801px) {
+    .profile p {
+      padding: 0;
     }
+  }
 
-    .contact a:not(.instagram) {
-      text-transform: lowercase;
-    }
-
-    /* .showing-profile .footer {
-      display: none;
-    } */
+  .contact a:not(.instagram) {
+    text-transform: lowercase;
+  }
 </style>
 
 <section class='profile hide' id='profile'>
-  <div class='image_wrap profile_photo'></div>
+  <div class='image_wrap profile_photo'>
+    <Picture
+      src={profileImage}
+      formats={['avif', 'webp']}
+      alt='Binocle is the office led by Italian architect Lorenzo Bini'
+      layout='constrained'
+      loading='eager'
+    />
+  </div>
 
   <div class='text_content'>
     <h1 class='work_name'>Profile</h1>
@@ -107,7 +109,7 @@
       transformation of existing spaces, from temporary structures to permanent buildings and gardens.
     </p>
     <p>
-      Born in 1971 and educated in Milan and Oslo, Lorenzo graduated in 1998 from Politecnico di
+      Born in 1971, educated in Milan and Oslo, Lorenzo graduated in 1998 from Politecnico di
       Milano and worked in Milan and Rotterdam until 2003 when he started his own practice in
       Milano.
     </p>

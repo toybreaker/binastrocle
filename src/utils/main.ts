@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('BINastrOCLE NAV loaded!')
   // Auto-initialize the nav toggle
   initializeNavToggle();
+  alsoInitializeNavToggle();
 })
 
 /* code that SPEAKs: toggle nav */
@@ -24,6 +25,20 @@ export function toggleClass(element: HTMLElement | null, className: string): voi
 
 export function initializeNavToggle(): void {
     const toggleButton = document.getElementById('toggle_works');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            if (document.body.classList.contains('showing_profile')) {
+                toggleClass(document.getElementById('profile'), 'hide');
+                toggleClass(document.body, 'showing_profile');
+            }
+            toggleClass(document.getElementById('menu'), 'hide');
+            toggleClass(document.body, 'showing_menu');
+        });
+    }
+}
+
+export function alsoInitializeNavToggle(): void {
+    const toggleButton = document.getElementById('also_toggle_works');
     if (toggleButton) {
         toggleButton.addEventListener('click', function() {
             if (document.body.classList.contains('showing_profile')) {
