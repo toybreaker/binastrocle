@@ -77,6 +77,15 @@ svg {
   }
 }
 
+.text_content {
+  max-width: 960px;
+}
+
+@media (min-width: 801px) {
+  .text_content {
+    margin: 0 auto;
+  }
+}
 
 
 /* Shots styles */
