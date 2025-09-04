@@ -12,7 +12,9 @@ Set up for the exhibition ‘Vico Magistretti. Architetto milanese’ organised 
 The main structures - a large table, a long shelf/wall and a gigantic hood - are designed as blow-ups of domestic archetypes, organise the exhibition space and allude to a place in which to work, design, think, stay and live. A single construction system and a single material confer unity and recognisability to the installation.
 
 
-|:-------------|:-----------------------|
+
+|&nbsp;|&nbsp;|
+|:----------|:---------------|
 | Location:    | Milano, Italy          |
 | Client:      | Triennale Milano       |
 | Year:        | 2021                   |
