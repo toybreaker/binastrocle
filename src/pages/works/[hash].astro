@@ -117,10 +117,14 @@ const remainingImages = imageUrls.slice(1);
       height: auto;
     }
   }
+  body.work .see_more.hide {
+      display: block;
+  }
+
 </style>
 
 <Layout title={work.data.title} bodyClass='work'>
-  <main class={'bungkus ' + work.data.project}>
+  <main class={'bungkus ' + work.data.project} id="main">
     <!-- Display first image before h2 title -->
     {
       firstImage && (

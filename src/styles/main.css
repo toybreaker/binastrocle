@@ -51,9 +51,6 @@ svg {
   height: 100%;
 }
 
-.hide {
-  display: none;
-}
 
 .bungkus {
   padding: 0;
@@ -126,7 +123,21 @@ svg {
   cursor: pointer;
 }
 
+.hide {
+  display: none;
+}
 
-.work #toggle_about_binocle {
+:not(.showing_menu).work #toggle_about_binocle {
+    display: none;
+}
+
+.showing_menu.work #toggle_about_binocle {
+    display: block!important;
+}
+
+.showing_menu .see_more {
+    display: none;
+}
+body.home .go_home.see_more {
     display: none;
 }
