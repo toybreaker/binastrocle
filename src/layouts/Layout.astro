@@ -9,10 +9,14 @@ import '@styles/main.css';
 export interface Props {
   title: string;
   bodyClass?: string | undefined;
+  description?: string;
 }
 
-const { title,
-  bodyClass = "default", } = Astro.props;
+const {
+  title,
+  bodyClass = "default",
+  description = "Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.",
+} = Astro.props;
 ---
 <!doctype html>
 <html lang='en'>
@@ -21,10 +25,7 @@ const { title,
         <Version />
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta
-            name='description'
-            content='Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.'
-        />
+        <meta name='description' content={description} />
         <title>{title}</title>
     </head>
   <body id='top' class={bodyClass}>
