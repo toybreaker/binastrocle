@@ -54,7 +54,8 @@ const canonicalUrl = new URL('/', Astro.site).toString();
           src={cover}
           formats={['avif', 'webp']}
           alt='Binocle By Lorenzo Bini'
-          layout='constrained'
+          widths={[400, 800, 1200, 1920]}
+          sizes='(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px'
           loading='eager'
         />
       </div>
