@@ -9,10 +9,18 @@ import '@styles/main.css';
 export interface Props {
   title: string;
   bodyClass?: string | undefined;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
 }
 
-const { title,
-  bodyClass = "default", } = Astro.props;
+const {
+  title,
+  bodyClass = "default",
+  description = "Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.",
+  ogImage,
+  canonicalUrl,
+} = Astro.props;
 ---
 <!doctype html>
 <html lang='en'>
@@ -26,10 +34,17 @@ const { title,
         <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
         <link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon-180x180.png' />
         <link rel='manifest' href='/favicons/site.webmanifest' />
-        <meta
-            name='description'
-            content='Studio Binocle in Milan, Italy was founded by architect Lorenzo Bini.'
-        />
+        <meta name='description' content={description} />
+        {canonicalUrl && <link rel='canonical' href={canonicalUrl} />}
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='Binocle' />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        {ogImage && <meta property='og:image' content={ogImage} />}
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content={title} />
+        <meta name='twitter:description' content={description} />
+        {ogImage && <meta name='twitter:image' content={ogImage} />}
         <title>{title}</title>
     </head>
   <body id='top' class={bodyClass}>
