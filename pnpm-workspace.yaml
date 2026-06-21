@@ -1,3 +1,15 @@
 onlyBuiltDependencies:
   - esbuild
   - sharp
+
+# Pin patched minimums for transitive deps flagged by Dependabot (CVE fixes).
+# All are sub-dependencies of astro/vite/sharp; ranges already allow these.
+overrides:
+  fast-uri: '>=3.1.2'
+  picomatch: '>=2.3.2'
+  rollup: '>=4.59.0'
+  ajv: '>=8.18.0'
+  mdast-util-to-hast: '>=13.2.1'
+  postcss: '>=8.5.10'
+  yaml: '>=2.8.3'
+  esbuild: '>=0.28.1'
