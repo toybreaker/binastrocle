@@ -1,6 +1,6 @@
 {
   "name": "binastrocle",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -17,9 +17,9 @@
     "upg": "npx @astrojs/upgrade"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^5.14.3",
+    "astro": "^6.4.8",
     "sharp": "^0.34.4",
     "typescript": "^5.9.2"
   },

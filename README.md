@@ -2,12 +2,15 @@
 
 # [🫵🏼 DONT CLICK ME! ](https://binocleastro.netlify.app)
 
-## Astro🚀5 + a✌🏼peaceofmind
+## Astro🚀6 + a✌🏼peaceofmind
 
 ### Features:
 - ✅ HTML5 semantics
 - ✅ Images optimized at build time by 🚀automatio
-- ✅ `<picture>` element respose
+- ✅ `<picture>` element respose, responsive `srcset`/`sizes`
+- ✅ SEO: per-page meta descriptions, Open Graph + Twitter Card, canonical URLs
+- ✅ `sitemap-index.xml` via `@astrojs/sitemap` + `robots.txt`
+- ✅ Favicons wired across the set (incl. `site.webmanifest`)
 
 
 ### WARNING.

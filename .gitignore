@@ -18,6 +18,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Claude Code skills (kept local)
+.claude/skills/
 /node_modules
 /node_modules
 /node_modules/.bin
