@@ -3,7 +3,7 @@
 import { getCollection, render } from 'astro:content';
 import { getWorkImagesSync } from '@utils/imageUtils';
 import Layout from '@layouts/Layout.astro';
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
 
 // Generate routes for all works
 export async function getStaticPaths() {
@@ -24,6 +24,12 @@ const { Content } = await render(work);
 const imageUrls = getWorkImagesSync(work.data.hash);
 const firstImage = imageUrls[0];
 const remainingImages = imageUrls.slice(1);
+
+const ogImageObj = firstImage
+  ? await getImage({ src: firstImage, width: 1200, height: 630, format: 'jpg' })
+  : null;
+const ogImage = ogImageObj ? new URL(ogImageObj.src, Astro.site).toString() : undefined;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <style>
@@ -123,7 +129,13 @@ const remainingImages = imageUrls.slice(1);
 
 </style>
 
-<Layout title={work.data.title} bodyClass='work'>
+<Layout
+  title={work.data.title}
+  bodyClass='work'
+  description={work.data.description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalUrl}
+>
   <main class={'bungkus ' + work.data.project} id="main">
     <!-- Display first image before h2 title -->
     {

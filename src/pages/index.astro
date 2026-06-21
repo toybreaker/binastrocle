@@ -4,10 +4,13 @@ console.log('this ROKMA|DEV runs in your terminal, not in the browser, neither o
 console.log('SOURCE_FILE: src/pages/index.astro');
 
 import Layout from '@layouts/Layout.astro';
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
 import cover from '@p/cover.jpg';
 const pageTitle = 'BINOCLE | 2025 update';
 const bodyClass = 'home';
+const ogImageObj = await getImage({ src: cover, width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageObj.src, Astro.site).toString();
+const canonicalUrl = new URL('/', Astro.site).toString();
 ---
 
 <style>
@@ -42,7 +45,7 @@ const bodyClass = 'home';
 
 </style>
 
-<Layout title={pageTitle} bodyClass={bodyClass}>
+<Layout title={pageTitle} bodyClass={bodyClass} ogImage={ogImage} canonicalUrl={canonicalUrl}>
   <h1 class='hide'>BINOCLE</h1>
   <main class='bungkus' id="main">
     <div class='home shots' id='also_toggle_works'>
@@ -51,7 +54,8 @@ const bodyClass = 'home';
           src={cover}
           formats={['avif', 'webp']}
           alt='Binocle By Lorenzo Bini'
-          layout='constrained'
+          widths={[400, 800, 1200, 1920]}
+          sizes='(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px'
           loading='eager'
         />
       </div>

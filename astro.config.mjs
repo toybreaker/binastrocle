@@ -1,7 +1,9 @@
 // astro.config.mjs
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  integrations: [sitemap()],
   devOptions: {
     sourceMap: true, // <-- ENABLE this to show data-astro-source-file infos !
   },
