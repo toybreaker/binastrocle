@@ -6,7 +6,7 @@ console.log('SOURCE_FILE: src/pages/index.astro');
 import Layout from '@layouts/Layout.astro';
 import { Picture, getImage } from 'astro:assets';
 import cover from '@p/cover.jpg';
-const pageTitle = 'BINOCLE | 2025 update';
+const pageTitle = 'BINOCLE | architecture office led by Lorenzo Bini';
 const bodyClass = 'home';
 const ogImageObj = await getImage({ src: cover, width: 1200, height: 630, format: 'jpg' });
 const ogImage = new URL(ogImageObj.src, Astro.site).toString();
