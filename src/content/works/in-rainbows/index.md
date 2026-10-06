@@ -12,7 +12,7 @@ Commissioned by Kvadrat on occasion of the Milan Design Week, this installation 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|
 |Location:|Milan, Italy|
-|Client:|Kvadrat|
+|Client:|[Kvadrat](https://www.kvadrat.dk/en/salone-del-mobile/salone-del-mobile-2026/in-rainbows)|
 |Year:|2026|
 |Status:|Completed|
 |Program:|Installation|
