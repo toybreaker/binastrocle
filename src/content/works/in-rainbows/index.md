@@ -16,4 +16,5 @@ Commissioned by Kvadrat on occasion of the Milan Design Week, this installation 
 |Year:|2026|
 |Status:|Completed|
 |Program:|Installation|
+|Team:|Stefano Garagiola|
 |Photographs:|1 - 7/12 Lorenzo Bini, 3/6 Jannick Pihl Rasmussen, 2 Stefano Garagiola|
