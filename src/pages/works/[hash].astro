@@ -33,30 +33,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <style>
-  .work_name {
-    font-size: 2rem;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: calc(var(--space) * 1.5);
-    padding-inline: calc(var(--space) * 1);
-    text-wrap: balance;
-    text-wrap: pretty; /* fallback */
-    white-space: pre-line; /* so break in frontmatter get respected: */
-  }
-
-  @media (min-width: 601px) {
-    .work_name {
-      font-size: 2.5rem;
-    }
-  }
-
-  @media (min-width: 801px) {
-    .work_name {
-      font-size: 3rem;
-    }
-  }
-
   .intro {
     font-size: 1.1rem;
     text-align: left;

@@ -85,6 +85,32 @@ svg {
 }
 
 
+/* Titles shared by Works pages and Profile */
+.work_name {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: calc(var(--space) * 1.5);
+  padding-inline: var(--space);
+  text-wrap: balance;
+  text-wrap: pretty; /* fallback */
+  white-space: pre-line; /* so break in frontmatter get respected: */
+}
+
+@media (min-width: 601px) {
+  .work_name {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 801px) {
+  .work_name {
+    font-size: 3rem;
+  }
+}
+
+
 /* Shots styles */
 .shots {
   display: flex;
