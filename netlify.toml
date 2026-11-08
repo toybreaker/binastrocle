@@ -1,3 +1,5 @@
+"$schema" = "https://open-api.netlify.com/netlify.schema.json"
+
 # Netlify: build del sito statico Astro.
 # Astro 7 richiede Node >= 22.23.4 (verificato in package.json engines);
 # la versione va dichiarata, altrimenti il build Netlify usa il default
@@ -10,3 +12,36 @@
 
 [build.environment]
   NODE_VERSION = "26"
+
+# Header di sicurezza. HSTS non compare: Netlify lo manda gia'
+# (verificato su https://binocle.it: `strict-transport-security:
+# max-age=31536000`), e riscriverlo qui rischierebbe solo di
+# indebolirlo.
+#
+# La CSP e' volutamente minima: frame-ancestors e object-src, senza
+# default-src ne' script-src. Gli stili sono inline per scelta
+# (`inlineStylesheets: always` in astro.config): una CSP con
+# script-src richiederebbe hash o 'unsafe-inline', cioe' nessun
+# guadagno reale. Quello che si guadagna qui e' il divieto di
+# incorniciare il sito e di annidare plugin.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Content-Security-Policy = "frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# I file in /_astro/ hanno l'hash del contenuto nel nome: se cambiano
+# cambia il nome, quindi si possono tenere in cache per sempre. Senza
+# questa regola Netlify li serve con `max-age=0, must-revalidate`
+# (misurato su binocle.it) e ogni visita ricontrolla ogni immagine: su
+# una pagina con 13 foto sono 13 richieste condizionali in piu'.
+# L'HTML resta al default di Netlify: cache breve, sempre rivalidata.
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
