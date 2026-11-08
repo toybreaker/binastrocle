@@ -4,9 +4,6 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   integrations: [sitemap()],
-  devOptions: {
-    sourceMap: true, // <-- ENABLE this to show data-astro-source-file infos !
-  },
   output: "static",
   image: {
     responsiveStyles: true,
@@ -19,12 +16,6 @@ export default defineConfig({
   prefetch: {
     // defaultStrategy: "viewport",
     prefetchAll: true,
-  },
-  collections: {
-    myDataCollection: {
-      directory: "src/content",
-      routeByDefault: true,
-    },
   },
   trailingSlash: "never",
   root: "./",

@@ -1,0 +1,11 @@
+# Netlify: build del sito statico Astro.
+# Astro 7 richiede Node >= 22.23.4 (verificato in package.json engines):
+# la versione va dichiarata, altrimenti il build Netlify usa il default
+# della piattaforma e si ferma sul controllo degli engines.
+
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
