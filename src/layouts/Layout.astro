@@ -52,7 +52,8 @@ const {
     <slot />
     <Footer />
     <script>
-        console.log('This ROKMA|CLIENT runs on the client, the browser that is!');
+        import { initNav } from '@utils/main';
+        initNav();
     </script>
   </body>
 </html>

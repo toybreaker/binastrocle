@@ -83,14 +83,16 @@ import profileImage from '@p/profile.jpg';
     <Picture
       src={profileImage}
       formats={['avif', 'webp']}
+      widths={[320, 480, 640, 960]}
+      sizes='(max-width: 700px) 100vw, 640px'
       alt='Binocle is the office led by Italian architect Lorenzo Bini'
       layout='constrained'
-      loading='eager'
+      loading='lazy'
     />
   </div>
 
   <div class='text_content'>
-    <h1 class='work_name'>Profile</h1>
+    <h2 class='work_name'>Profile</h2>
     <p>
       <strong>BINOCLE</strong> is the office led by Italian architect Lorenzo Bini that deals with the
       transformation of existing spaces, from temporary structures to permanent buildings and gardens.
@@ -117,7 +119,7 @@ import profileImage from '@p/profile.jpg';
     </p>
 
     <div class='contact' itemscope='' itemtype='http://schema.org/Organization'>
-      <h1 class='work_name' id='contact'>Contact</h1>
+      <h2 class='work_name' id='contact'>Contact</h2>
 
       <p class='site_title'>
         <span itemprop='name'><strong>Binocle</strong></span>
