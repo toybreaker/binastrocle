@@ -61,8 +61,19 @@ src/styles/main.css              CSS globale
 - `formats={['avif','webp']}` con `fallbackFormat='webp'`: elimina il set JPG di fallback che era il 47% del
   peso di `dist/` ed era comunque inutilizzato (le `<source>` hanno sempre precedenza).
 
-**La cache immagini sta in `node_modules/.astro` (1,5 GB).** Build con cache calda: 5–10 s. Build a freddo:
-**~50 minuti**. Non cancellarla per fare "pulizia": è il motivo per cui i deploy sono lenti o veloci.
+**La cache immagini sta in `node_modules/.astro` (1,5 GB).** Build con cache calda: **10 s** (5.561 asset
+riusati). Build a freddo: **58 minuti** — misurato l'8/11/2026 su questa macchina: 3.490 s, 33 pagine, 0 asset
+riusati, 10.177 riferimenti risolti. Non cancellarla per fare "pulizia".
+
+Il tempo a freddo non lo detta il numero di file ma il codificatore: le varianti per fotografia sono 12
+(6 larghezze × avif/webp) contro le 18 di prima, quando esisteva anche il set JPG di fallback, e il build è
+comunque più lento. AVIF costa, JPG no.
+
+**Non spostarla fuori da `node_modules`.** `cacheDir: './.astro-cache'` è stato provato: in locale funziona
+(la cache è portabile, il build caldo resta a 10 s), ma **peggiora i deploy**. Netlify conserva le
+*dipendenze* fra un build e l'altro — cioè `node_modules`, che oggi contiene `.astro` — e non una cartella
+custom che nessuno gli ha dichiarato: ogni deploy diventerebbe un build a freddo da un'ora, contro il timeout
+di build della piattaforma. Se un giorno serve spostarla, va aggiunto insieme un plugin che la dichiari.
 
 ## Deploy
 
