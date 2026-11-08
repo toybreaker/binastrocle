@@ -200,3 +200,30 @@ body.home .go_home.see_more {
 .showing_menu.work #toggle_about_binocle {
     display: block;
 }
+
+/* Logo, immagine della home e mini-logo del profilo sono div/span con
+   role="button": da tastiera hanno bisogno di sapere dove si trovano.
+   L'anello va sull'elemento che si vede (la scritta, l'icona, la fotografia),
+   non sul contenitore a tutta larghezza che lo ospita. Solo :focus-visible,
+   quindi col mouse non compare niente. */
+[role='button']:focus-visible {
+    outline: 2px solid var(--link_color);
+    outline-offset: 0.25rem;
+}
+
+.logo:focus-visible,
+.go_home:focus-visible,
+#also_toggle_works:focus-visible {
+    outline: none;
+}
+
+.logo:focus-visible svg,
+.go_home:focus-visible svg {
+    outline: 2px solid var(--link_color);
+    outline-offset: 0.4rem;
+}
+
+#also_toggle_works:focus-visible img {
+    outline: 2px solid var(--link_color);
+    outline-offset: -0.5rem;
+}

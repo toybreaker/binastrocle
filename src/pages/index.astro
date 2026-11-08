@@ -45,7 +45,15 @@ const canonicalUrl = new URL('/', Astro.site).toString();
 <Layout title={pageTitle} bodyClass={bodyClass} ogImage={ogImage} canonicalUrl={canonicalUrl}>
   <h1 class='sr_only'>BINOCLE</h1>
   <main class='bungkus' id="main">
-    <div class='home shots' id='also_toggle_works'>
+    <div
+      class='home shots'
+      id='also_toggle_works'
+      role='button'
+      tabindex='0'
+      aria-controls='menu'
+      aria-expanded='false'
+      aria-label='Open the menu of works'
+    >
       <div class='pictureoftheday'>
         <Picture
           src={cover}
