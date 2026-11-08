@@ -1,0 +1,65 @@
+---
+// src/pages/works/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+
+// Stesso ordinamento del menu: anno decrescente, poi nome del progetto.
+const works = await getCollection('works');
+const sortedWorks = works.sort((a, b) => {
+  if (b.data.year !== a.data.year) {
+    return b.data.year - a.data.year;
+  }
+  return a.data.project.localeCompare(b.data.project);
+});
+
+const pageTitle = 'BINOCLE | works';
+const bodyClass = 'works_index';
+const canonicalUrl = new URL('/works', Astro.site).toString();
+---
+
+<style>
+  .works_index_list {
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--space) * 2) 0;
+  }
+
+  .works_index_list li {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .works_index_list a {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .works_index_list a:hover,
+  .works_index_list a.active {
+    color: var(--link_color_light);
+  }
+
+  @media (min-width: 601px) {
+    .works_index_list a {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<Layout title={pageTitle} bodyClass={bodyClass} canonicalUrl={canonicalUrl}>
+  <h1 class='sr_only'>Works</h1>
+  <main class='bungkus' id='main'>
+    <ul class='works_index_list'>
+      {
+        sortedWorks.map((work) => (
+          <li>
+            <a href={`/works/${work.data.hash}`}>{work.data.project}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
