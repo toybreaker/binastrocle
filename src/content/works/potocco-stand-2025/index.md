@@ -4,7 +4,7 @@ hash: potocco-stand-2025
 project: Potocco Stand 2025
 title: Binocle - Potocco Stand 2025
 description: 'The Potocco stand for the 2025 Milan Furniture Fair. Open and inviting'
-program: exibition-design
+program: exhibition-design
 year: 2025
 ---
 
