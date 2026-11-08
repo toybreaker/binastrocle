@@ -20,6 +20,13 @@ export async function getStaticPaths() {
 const { work } = Astro.props;
 const { Content } = await render(work);
 
+// Le immagini di un lavoro vivono in un contenitore che va dal 100% al 90vw
+// (max 1920px): nessuna serve oltre i 1920. `width` è ciò che impedisce ad
+// Astro di usare — e di copiare in dist/ — l'originale come `src`: senza,
+// il fallback era il file da 4000px.
+const IMAGE_WIDTHS = [640, 828, 1080, 1280, 1668, 1920];
+const IMAGE_SIZES = '(min-width: 801px) 90vw, 100vw';
+
 // Get all images for this work automatically
 const imageUrls = getWorkImagesSync(work.data.hash);
 const firstImage = imageUrls[0];
@@ -117,7 +124,17 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     {
       firstImage && (
         <div class='image_wrap'>
-          <Picture src={firstImage} alt={`${work.data.title} - TLDR`} loading='eager' />
+          <Picture
+            src={firstImage}
+            alt={`${work.data.title} - TLDR`}
+            width={1920}
+            widths={IMAGE_WIDTHS}
+            sizes={IMAGE_SIZES}
+            formats={['avif', 'webp']}
+            fallbackFormat='webp'
+            loading='eager'
+            fetchpriority='high'
+          />
         </div>
       )
     }
@@ -136,7 +153,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
             <Picture
               src={imageObj}
               alt={`${work.data.title} - Image ${index + 2}`}
+              width={1920}
+              widths={IMAGE_WIDTHS}
+              sizes={IMAGE_SIZES}
+              formats={['avif', 'webp']}
+              fallbackFormat='webp'
               loading='lazy'
+              decoding='async'
             />
           </div>
         ))
