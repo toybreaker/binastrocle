@@ -53,27 +53,42 @@ src/styles/main.css              CSS globale
 4. La prima immagine è la copertina: `loading='eager'`, `fetchpriority='high'`. Le altre sono `lazy`.
 5. Il markdown non referenzia le immagini: vengono scoperte dal glob. Non serve toccare il codice.
 
-## Immagini: perché sono tornate com'erano
+## Immagini: si trasformano all'edge, non al build
 
-Il set di varianti è quello originale: `<Picture>` senza `width`/`widths`/`sizes` espliciti. La versione
-ridotta (una derivata a 1920, `avif`+`webp`, niente JPG) è stata scritta e misurata — `dist` da 1.217 MB a
-699 MB, LCP da 2,5 a 2,0 s — ma **non si può deployare**, e non per un difetto del codice:
+Le varianti le genera la **Netlify Image CDN**, non il build. `<Picture>` emette URL:
 
-- il build a freddo di quel set costa **58 minuti** (3.490 s misurati l'8/11/2026: 33 pagine, 0 asset
-  riusati) su questa macchina con 8 CPU;
-- Netlify garantisce **4 CPU e 8 GiB** e interrompe i build a **15 minuti** (30 solo su richiesta al
-  supporto);
-- cambiare formati e larghezze **invalida ogni variante in cache**: sia il deploy preview sia il primo
-  deploy di produzione dopo il merge chiederebbero la ricodifica completa. Il preview della PR #14 è
-  morto esattamente così, a 15 minuti netti.
+```
+/.netlify/images?url=_astro%2FNOME-01-1920.jpg&fm=avif&w=1668&h=1112&fit=cover 1668w
+```
 
-Il sito regge perché la sua cache è calda da anni e cresce di decine di foto per volta. La strada scelta per
-riavere le immagini ottimizzate è la **Netlify Image CDN** (`/.netlify/images?url=…&w=…&fm=…`): trasforma
-all'edge, quindi **azzerra il costo di build**. Finché quella non c'è, non reintrodurre `widths`/`formats`
-"per migliorare le immagini": si torna al timeout.
+Il file che sta in `dist/_astro` è **l'originale**, uno per foto: 446 file, `dist` 343 MB (prima 1,2 GB,
+con 6.467 file). La trasformazione avviene alla prima richiesta di quella variante e poi resta in cache
+all'edge. Configurazione, in `astro.config.mjs`:
 
-**La cache immagini sta in `node_modules/.astro` (1,5 GB).** Build con cache calda: **10 s** (5.561 asset
-riusati). Build a freddo: **58 minuti**. Non cancellarla per fare "pulizia".
+```js
+image: { service: { entrypoint: "@astrojs/netlify/image-service.js" } }
+```
+
+**Solo il servizio, non l'adapter.** Con `adapter: netlify()` il build genererebbe anche una funzione SSR
+e un edge middleware (`.netlify/v1/functions`, `.netlify/v1/edge-functions`) che a un sito statico non
+servono: provato, e scartato. Con il solo servizio il build non crea `.netlify/` e chiude in **1,70 s**
+(era 12,36 s col set di varianti codificate).
+
+**Non reintrodurre la codifica al build.** Prima della CDN le varianti si producevano nel build (derivata
+a 1920, `avif`+`webp`, niente JPG): 5.561 varianti, **58 minuti a freddo** contro i **15 minuti** che
+Netlify concede. La PR #14 è morta esattamente così, e la stessa ricodifica sarebbe toccata al primo
+deploy di produzione, perché cambiare formati e larghezze invalida ogni variante in cache. Se servono
+immagini diverse si cambiano i parametri di `<Picture>`: ora sono gratis.
+
+**In locale le immagini di `astro dev` sono rotte**: `/.netlify/images` esiste solo su Netlify. Per
+vederle serve `netlify dev`, oppure il deploy preview. Non è un guasto da inseguire.
+
+**Larghezze in uso**: opere 640→1920 con `sizes='(min-width: 801px) 90vw, 100vw'`; profilo 320→960.
+Anche `og:image` passa dalla CDN, con URL assoluto su `site` (`https://binocle.it/...`) — quindi su un
+deploy preview dà 404, ed è corretto: punta alla produzione.
+
+**La cache immagini in `node_modules/.astro` (1,5 GB) adesso è inerte**: con la CDN non si codifica più
+niente. Si può lasciare dov'è; serve solo se si tornasse indietro.
 
 **Non spostarla fuori da `node_modules`.** `cacheDir: './.astro-cache'` è stato provato: in locale funziona
 (la cache è portabile, il build caldo resta a 10 s), ma **peggiora i deploy**. Netlify conserva le
