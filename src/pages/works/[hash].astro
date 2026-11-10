@@ -45,11 +45,20 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 <style>
   .intro {
-    font-size: 1.1rem;
+    /* Su mobile il corpo è 1rem (16 px), come i paragrafi del profilo: il
+       paragrafo sta in una colonna di 306 px (390 di viewport meno 2×2.5svh di
+       margine per lato) e a 17,6 px la giustificazione non regge — gli spazi
+       passavano da 5 a 22,6 px sulla stessa colonna. Con 16 px e la
+       sillabazione attiva (il documento è lang="en") restano 4,5–10,1 px, e le
+       righe scendono da 24 a 21. Da 801 px corpo e sillabazione tornano quelli
+       di prima: il desktop non cambia. */
+    font-size: 1rem;
     text-align: left;
 
     p {
       text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
       margin-left: calc(var(--space) * 2);
       margin-right: calc(var(--space) * 2);
     }
@@ -79,24 +88,34 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       vertical-align: baseline;
     }
 
-  }
+    /* Deve stare annidata: p e table generati dal markdown non portano
+       l'attributo di scoping di Astro (data-astro-cid-…), quindi `& p` compila
+       in `.intro[cid] p` e li tocca, mentre un selettore scritto per esteso
+       dentro un @media esterno — `.intro[cid] p[cid]` — non li toccherebbe
+       mai. Per lo stesso motivo le due regole td dei media query qui sotto
+       erano codice morto e sono state portate dentro il blocco. */
+    @media (min-width: 801px) {
+      p {
+        -webkit-hyphens: manual;
+        hyphens: manual;
+      }
+    }
 
+    @media (max-width: 800px) {
+      table td:first-child {
+        padding-top: 0.5rem;
+      }
+
+      table td {
+        width: fit-content;
+      }
+    }
+  }
 
   @media (min-width: 801px) {
     .intro {
+      font-size: 1.1rem;
       text-align: justify;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .intro table td:first-child {
-      padding-top: 0.5rem;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .intro table td {
-      width: fit-content;
     }
   }
 
