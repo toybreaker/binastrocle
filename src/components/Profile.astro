@@ -76,6 +76,14 @@ import profileImage from '@p/profile.jpg';
   .contact a:not(.instagram) {
     text-transform: lowercase;
   }
+
+  .credit {
+    padding-top: calc(var(--space) * 0.5);
+    padding-bottom: calc(var(--space) * 0.5);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--link_color);
+  }
 </style>
 
 <section class='profile hide' id='profile'>
@@ -85,12 +93,12 @@ import profileImage from '@p/profile.jpg';
       formats={['avif', 'webp']}
       alt='Binocle is the office led by Italian architect Lorenzo Bini'
       layout='constrained'
-      loading='eager'
+      loading='lazy'
     />
   </div>
 
   <div class='text_content'>
-    <h1 class='work_name'>Profile</h1>
+    <h2 class='work_name'>Profile</h2>
     <p>
       <strong>BINOCLE</strong> is the office led by Italian architect Lorenzo Bini that deals with the
       transformation of existing spaces, from temporary structures to permanent buildings and gardens.
@@ -117,7 +125,7 @@ import profileImage from '@p/profile.jpg';
     </p>
 
     <div class='contact' itemscope='' itemtype='http://schema.org/Organization'>
-      <h1 class='work_name' id='contact'>Contact</h1>
+      <h2 class='work_name' id='contact'>Contact</h2>
 
       <p class='site_title'>
         <span itemprop='name'><strong>Binocle</strong></span>
@@ -149,5 +157,7 @@ import profileImage from '@p/profile.jpg';
         >
       </p>
     </div>
+
+    <p class='credit'>site by <a href='https://junglestar.org' target='_blank' rel='noreferrer'>Rokma</a></p>
   </div>
 </section>

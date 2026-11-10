@@ -36,7 +36,13 @@
         "enabled": true
       },
       "linter": {
-        "enabled": true
+        "enabled": true,
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          }
+        }
       }
     }
   ]

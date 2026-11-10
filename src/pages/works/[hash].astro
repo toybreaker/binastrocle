@@ -117,12 +117,17 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     {
       firstImage && (
         <div class='image_wrap'>
-          <Picture src={firstImage} alt={`${work.data.title} - TLDR`} loading='eager' />
+          <Picture
+            src={firstImage}
+            alt={work.data.project}
+            loading='eager'
+            fetchpriority='high'
+          />
         </div>
       )
     }
 
-    <h2 class='work_name'>{work.data.project}</h2>
+    <h1 class='work_name'>{work.data.project}</h1>
 
     <section class='text_content intro'>
       <Content />
@@ -133,10 +138,22 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       {
         remainingImages.map((imageObj, index) => (
           <div class='image_wrap'>
+            {/*
+              Le foto della galleria non hanno didascalia: l'alt generato
+              prima ("titolo del sito - Image 3") faceva annunciare a uno
+              screen reader il nome di Binocle seguito da un numero, 12
+              volte per pagina. Il nome dell'opera e' gia' nel h1, quindi
+              qui l'informazione utile e' la posizione nella serie.
+              Nota: alt='' sarebbe la scelta da immagine decorativa, ma il
+              compilatore di Astro 7 scarta gli attributi con valore vuoto
+              (verificato: alt="" non arriva nel build, con o senza
+              compressHTML), e un <img> senza alt e' peggio.
+            */}
             <Picture
               src={imageObj}
-              alt={`${work.data.title} - Image ${index + 2}`}
+              alt={`${work.data.project} — photo ${index + 2} of ${imageUrls.length}`}
               loading='lazy'
+              decoding='async'
             />
           </div>
         ))

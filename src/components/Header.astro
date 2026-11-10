@@ -52,7 +52,15 @@ import Profile from '@components/Profile.astro';
 </style>
 
 <header>
-  <div class='logo' id='toggle_works'>
+  <div
+    class='logo'
+    id='toggle_works'
+    role='button'
+    tabindex='0'
+    aria-controls='menu'
+    aria-expanded='false'
+    aria-label='Binocle Works: open the menu of works'
+  >
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 50'>
       <path
         shape-rendering='geometricPrecision'
@@ -63,10 +71,3 @@ import Profile from '@components/Profile.astro';
 </header>
 <Nav />
 <Profile />
-
-<script>
-  import { initializeNavToggle } from '@utils/main';
-  initializeNavToggle();
-
-  console.log('NAV initialized');
-</script>

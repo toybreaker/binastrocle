@@ -4,9 +4,6 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   integrations: [sitemap()],
-  devOptions: {
-    sourceMap: true, // <-- ENABLE this to show data-astro-source-file infos !
-  },
   output: "static",
   image: {
     responsiveStyles: true,
@@ -20,25 +17,12 @@ export default defineConfig({
     // defaultStrategy: "viewport",
     prefetchAll: true,
   },
-  collections: {
-    myDataCollection: {
-      directory: "src/content",
-      routeByDefault: true,
-    },
-  },
   trailingSlash: "never",
   root: "./",
   site: "https://binocle.it",
   outDir: "./dist",
   devToolbar: {
     enabled: false,
-  },
-  redirects: {
-    // No root hitting. No index needed. Astro will take care of it.
-    "/works": {
-      status: 302,
-      destination: "/",
-    },
   },
   vite: {
       resolve: {

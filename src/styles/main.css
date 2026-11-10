@@ -93,9 +93,15 @@ svg {
   text-transform: uppercase;
   padding-top: calc(var(--space) * 1.5);
   padding-inline: var(--space);
-  text-wrap: balance;
-  text-wrap: pretty; /* fallback */
+  text-wrap: pretty;
   white-space: pre-line; /* so break in frontmatter get respected: */
+  /* I margini di default dipendono dal tag: fissati ai valori che la pagina
+     aveva prima della correzione di gerarchia (h2 nell'opera, h1 nel profilo). */
+  margin-block: 0.83em;
+}
+
+#profile .work_name {
+  margin-block: 0.67em;
 }
 
 @media (min-width: 601px) {
@@ -153,24 +159,71 @@ svg {
   display: none;
 }
 
-:not(.showing_menu).work #toggle_about_binocle {
-    display: none;
+/* Visibile agli screen reader e ai crawler, invisibile a schermo:
+   la home è una fotografia sola, ma il documento deve avere il suo h1. */
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
-.showing_menu.work #toggle_about_binocle {
-    display: block!important;
+/* Frecce "torna su": nascoste quando il pannello aperto non è quello dei lavori.
+   Selettori in ordine di specificità crescente: stesso effetto, cascata leggibile. */
+.showing_profile main {
+    display: none;
 }
 
 .showing_menu .see_more {
     display: none;
 }
+
+.showing_profile .go_home.see_more {
+    display: none;
+}
+
 body.home .go_home.see_more {
     display: none;
 }
 
-.showing_profile main {
+/* Il mini-logo che apre il profilo compare solo dentro il menu, e solo nelle
+   pagine opera. Le due regole si escludono a vicenda: !important non serve. */
+:not(.showing_menu).work #toggle_about_binocle {
     display: none;
 }
-.showing_profile .go_home.see_more {
-    display: none;
+
+.showing_menu.work #toggle_about_binocle {
+    display: block;
+}
+
+/* Logo, immagine della home e mini-logo del profilo sono div/span con
+   role="button": da tastiera hanno bisogno di sapere dove si trovano.
+   L'anello va sull'elemento che si vede (la scritta, l'icona, la fotografia),
+   non sul contenitore a tutta larghezza che lo ospita. Solo :focus-visible,
+   quindi col mouse non compare niente. */
+[role='button']:focus-visible {
+    outline: 2px solid var(--link_color);
+    outline-offset: 0.25rem;
+}
+
+.logo:focus-visible,
+.go_home:focus-visible,
+#also_toggle_works:focus-visible {
+    outline: none;
+}
+
+.logo:focus-visible svg,
+.go_home:focus-visible svg {
+    outline: 2px solid var(--link_color);
+    outline-offset: 0.4rem;
+}
+
+#also_toggle_works:focus-visible img {
+    outline: 2px solid var(--link_color);
+    outline-offset: -0.5rem;
 }
