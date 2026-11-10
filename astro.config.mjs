@@ -8,6 +8,12 @@ export default defineConfig({
   image: {
     responsiveStyles: true,
     layout: "constrained",
+    // Netlify Image CDN come servizio immagini di Astro: <Picture> non codifica
+    // più le varianti al build, ma emette URL /.netlify/images?url=…&w=…; la
+    // trasformazione avviene all'edge, una volta sola per variante.
+    // Solo il servizio, non l'adapter: il sito resta statico e non guadagna
+    // né una funzione SSR né un edge middleware che non servono a nulla.
+    service: { entrypoint: "@astrojs/netlify/image-service.js" },
   },
   build: {
     format: "directory",
