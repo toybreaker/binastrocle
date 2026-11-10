@@ -53,21 +53,27 @@ src/styles/main.css              CSS globale
 4. La prima immagine è la copertina: `loading='eager'`, `fetchpriority='high'`. Le altre sono `lazy`.
 5. Il markdown non referenzia le immagini: vengono scoperte dal glob. Non serve toccare il codice.
 
-## Immagini: le tre cose che non si toccano
+## Immagini: perché sono tornate com'erano
 
-- `<Picture>` deve avere **`width`** esplicito: senza, Astro usa l'originale (fino a 4000 px) come `src` e lo
-  copia in `dist/` — è il motivo per cui il sito è passato da 1,2 GB a 700 MB.
-- `widths` 640→1920 e `sizes='(min-width: 801px) 90vw, 100vw'`: il contenitore va dal 100% al 90vw (max 1920).
-- `formats={['avif','webp']}` con `fallbackFormat='webp'`: elimina il set JPG di fallback che era il 47% del
-  peso di `dist/` ed era comunque inutilizzato (le `<source>` hanno sempre precedenza).
+Il set di varianti è quello originale: `<Picture>` senza `width`/`widths`/`sizes` espliciti. La versione
+ridotta (una derivata a 1920, `avif`+`webp`, niente JPG) è stata scritta e misurata — `dist` da 1.217 MB a
+699 MB, LCP da 2,5 a 2,0 s — ma **non si può deployare**, e non per un difetto del codice:
+
+- il build a freddo di quel set costa **58 minuti** (3.490 s misurati l'8/11/2026: 33 pagine, 0 asset
+  riusati) su questa macchina con 8 CPU;
+- Netlify garantisce **4 CPU e 8 GiB** e interrompe i build a **15 minuti** (30 solo su richiesta al
+  supporto);
+- cambiare formati e larghezze **invalida ogni variante in cache**: sia il deploy preview sia il primo
+  deploy di produzione dopo il merge chiederebbero la ricodifica completa. Il preview della PR #14 è
+  morto esattamente così, a 15 minuti netti.
+
+Il sito regge perché la sua cache è calda da anni e cresce di decine di foto per volta. La strada scelta per
+riavere le immagini ottimizzate è la **Netlify Image CDN** (`/.netlify/images?url=…&w=…&fm=…`): trasforma
+all'edge, quindi **azzerra il costo di build**. Finché quella non c'è, non reintrodurre `widths`/`formats`
+"per migliorare le immagini": si torna al timeout.
 
 **La cache immagini sta in `node_modules/.astro` (1,5 GB).** Build con cache calda: **10 s** (5.561 asset
-riusati). Build a freddo: **58 minuti** — misurato l'8/11/2026 su questa macchina: 3.490 s, 33 pagine, 0 asset
-riusati, 10.177 riferimenti risolti. Non cancellarla per fare "pulizia".
-
-Il tempo a freddo non lo detta il numero di file ma il codificatore: le varianti per fotografia sono 12
-(6 larghezze × avif/webp) contro le 18 di prima, quando esisteva anche il set JPG di fallback, e il build è
-comunque più lento. AVIF costa, JPG no.
+riusati). Build a freddo: **58 minuti**. Non cancellarla per fare "pulizia".
 
 **Non spostarla fuori da `node_modules`.** `cacheDir: './.astro-cache'` è stato provato: in locale funziona
 (la cache è portabile, il build caldo resta a 10 s), ma **peggiora i deploy**. Netlify conserva le
