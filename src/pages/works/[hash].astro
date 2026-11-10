@@ -20,6 +20,12 @@ export async function getStaticPaths() {
 const { work } = Astro.props;
 const { Content } = await render(work);
 
+// Le immagini di un lavoro vivono in un contenitore che va dal 100% al 90vw
+// (max 1920px): nessuna serve oltre i 1920. Con la Netlify Image CDN queste
+// varianti non costano build: sono URL, e la trasformazione avviene all'edge.
+const IMAGE_WIDTHS = [640, 828, 1080, 1280, 1668, 1920];
+const IMAGE_SIZES = '(min-width: 801px) 90vw, 100vw';
+
 // Get all images for this work automatically
 const imageUrls = getWorkImagesSync(work.data.hash);
 const firstImage = imageUrls[0];
@@ -120,6 +126,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
           <Picture
             src={firstImage}
             alt={work.data.project}
+            width={1920}
+            widths={IMAGE_WIDTHS}
+            sizes={IMAGE_SIZES}
+            formats={['avif', 'webp']}
+            fallbackFormat='webp'
             loading='eager'
             fetchpriority='high'
           />
@@ -152,6 +163,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
             <Picture
               src={imageObj}
               alt={`${work.data.project} — photo ${index + 2} of ${imageUrls.length}`}
+              width={1920}
+              widths={IMAGE_WIDTHS}
+              sizes={IMAGE_SIZES}
+              formats={['avif', 'webp']}
+              fallbackFormat='webp'
               loading='lazy'
               decoding='async'
             />
