@@ -80,8 +80,22 @@ Netlify concede. La PR #14 è morta esattamente così, e la stessa ricodifica sa
 deploy di produzione, perché cambiare formati e larghezze invalida ogni variante in cache. Se servono
 immagini diverse si cambiano i parametri di `<Picture>`: ora sono gratis.
 
-**In locale le immagini di `astro dev` sono rotte**: `/.netlify/images` esiste solo su Netlify. Per
-vederle serve `netlify dev`, oppure il deploy preview. Non è un guasto da inseguire.
+**In locale le immagini si vedono**: la config sceglie il servizio in base al comando in esecuzione —
+`astro dev` usa il servizio di default di Astro (sharp, varianti on demand in `node_modules/.astro`,
+URL `/_image?href=…`), `astro build` usa la CDN (URL `/.netlify/images`). Non serve `netlify dev` né un
+account Netlify.
+
+Il discriminante è `process.argv[2]` / `includes("dev")`. Due trappole, già pagate:
+
+- `defineConfig(({ command }) => ({…}))` **non funziona in questo progetto**: la funzione non viene
+  chiamata, la config resta vuota e il build muore con `Invalid URL` su `new URL(src, Astro.site)`.
+  Forma a oggetto, sempre.
+- `process.env.NODE_ENV` non è ancora `development` quando la config viene caricata: funzionerebbe in
+  build ma non in dev, e in dev resterebbe attiva la CDN.
+
+**`astro preview` invece resta senza immagini**: serve il `dist/` già costruito, dove gli URL puntano
+alla CDN che in locale non esiste. Per vedere le immagini o si usa `astro dev`, o il deploy preview.
+
 
 **Larghezze in uso**: opere 640→1920 con `sizes='(min-width: 801px) 90vw, 100vw'`; profilo 320→960.
 Anche `og:image` passa dalla CDN, con URL assoluto su `site` (`https://binocle.it/...`) — quindi su un
