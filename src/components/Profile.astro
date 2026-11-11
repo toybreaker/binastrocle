@@ -84,6 +84,23 @@ import profileImage from '@p/profile.jpg';
     font-size: 0.8rem;
     color: var(--link_color);
   }
+
+  /* Credito del fotografo: sta attaccato alla foto, non in fondo alla pagina.
+     Specificità maggiore di `.profile p`, che imporrebbe padding e larghezza
+     del testo corrente. */
+  .profile .photo_credit {
+    padding: 0;
+    margin: 0.5rem auto 0;
+    max-width: 640px;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--link_color_light);
+  }
+
+  .profile .photo_credit a {
+    text-transform: none;
+  }
 </style>
 
 <section class='profile hide' id='profile'>
@@ -94,9 +111,16 @@ import profileImage from '@p/profile.jpg';
       fallbackFormat='webp'
       widths={[320, 480, 640, 960]}
       sizes='(max-width: 700px) 100vw, 640px'
-      alt='Binocle is the office led by Italian architect Lorenzo Bini'
+      alt='Lorenzo Bini'
       loading='lazy'
     />
+    <p class='photo_credit'>
+      portrait by <a
+        href='https://www.davidebernardi.it/'
+        target='_blank'
+        rel='noreferrer'>Davide Bernardi</a
+      >
+    </p>
   </div>
 
   <div class='text_content'>
