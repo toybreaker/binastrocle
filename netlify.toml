@@ -45,3 +45,33 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Il manifest è `.webmanifest`: Netlify non riconosce l'estensione e lo serve
+# come `application/octet-stream` (misurato). Chrome lo accetta lo stesso, ma
+# il tipo corretto è questo, e con `display: browser` il sito non chiede più di
+# essere installato come app.
+[[headers]]
+  for = "/favicons/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "public, max-age=86400"
+
+# Le icone portano già `?v=180602` nel nome: possono stare in cache a lungo.
+# Il pattern è ristretto a `.png`/`.ico` di proposito: `/favicons/*` prenderebbe
+# anche il manifest, e due regole che si sovrappongono sulla stessa risorsa
+# rendono il risultato dipendente dall'ordine.
+[[headers]]
+  for = "/favicons/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/favicons/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# I PDF dei CV cambiano quando cambia il CV: un'ora, non un anno.
+[[headers]]
+  for = "/pdf/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

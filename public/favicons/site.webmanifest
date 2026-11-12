@@ -51,5 +51,5 @@
     "start_url": "https:\/\/binocle.it",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "browser"
 }

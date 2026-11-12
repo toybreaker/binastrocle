@@ -1,7 +1,7 @@
 ---
 layout: works
 hash: stadi-architecture-of-a-myth
-project: >
+project: >-
   Stadi.
   Architecture of a Myth
 title: Binocle - STADI ARCHITETTURA E MITO

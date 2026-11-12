@@ -37,7 +37,13 @@ export default defineConfig({
     // defaultStrategy: "viewport",
     prefetchAll: true,
   },
-  trailingSlash: "never",
+  // La forma canonica è quella servita da Netlify: con `build.format:
+  // 'directory'` il file sta in `<rotta>/index.html` e una richiesta senza
+  // barra finale risponde 301. Tenere `never` significava dichiarare in
+  // canonical e sitemap 33 URL che poi redirigono: due convenzioni in
+  // contraddizione sulla stessa pagina. Con `always` link, canonical, sitemap
+  // e URL servite coincidono, e `@astrojs/sitemap` aggiunge la barra da solo.
+  trailingSlash: "always",
   root: "./",
   site: "https://binocle.it",
   outDir: "./dist",
