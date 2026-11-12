@@ -4,7 +4,11 @@
     Cantarell, 'Helvetica Neue', sans-serif;
   --bg_color: #fafafa;
   --link_color: #555;
-  --link_color_light: #888;
+  /* Era #888: 3,4:1 su #fafafa, sotto il minimo AA di 4,5 per il testo
+     normale. Questo grigio serve alla voce attiva del menu (1rem su mobile) e
+     al credito della foto (0,8rem). #6b6b6b dà 5,2:1 e a occhio è lo stesso
+     grigio. */
+  --link_color_light: #6b6b6b;
   --space: 2.5svh;
 
   /* Breakpoints - use in container queries or JS */
