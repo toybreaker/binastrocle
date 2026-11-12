@@ -15,8 +15,14 @@ const sortedWorks = works.sort((a, b) => {
   return a.data.project.localeCompare(b.data.project);
 });
 
+// `trailingSlash: 'always'`: le URL si servono e si linkano con la barra
+// finale, quindi anche il confronto per la voce corrente va fatto sulla forma
+// normalizzata — altrimenti `/works/x/` non combacia con `/works/x` e la voce
+// attiva smette di accendersi, in silenzio.
+const normalize = (path: string): string => path.replace(/\/+$/, "") || "/";
+
 // Get current page path for active state (optional)
-const currentPath = Astro.url.pathname;
+const currentPath = normalize(Astro.url.pathname);
 ---
 
 <style>
@@ -54,16 +60,20 @@ const currentPath = Astro.url.pathname;
   }
 </style>
 
-<nav>
+<nav aria-label='Works'>
   <ul class='menu hide' id='menu'>
     {
       sortedWorks.map((work) => {
-        const workUrl = `/works/${work.data.hash}`;
-        const isActive = currentPath === workUrl;
+        const workUrl = `/works/${work.data.hash}/`;
+        const isActive = currentPath === normalize(workUrl);
 
         return (
           <li>
-            <a href={workUrl} class={isActive ? 'active' : ''}>
+            <a
+              href={workUrl}
+              class={isActive ? 'active' : undefined}
+              aria-current={isActive ? 'page' : undefined}
+            >
               {work.data.project}
             </a>
           </li>

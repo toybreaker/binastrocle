@@ -15,14 +15,17 @@ Questo file serve a chi apre il repo senza il contesto di chi c'era prima: leggi
 
 ```
 pnpm run dev --host        # dev server su http://<ip-lan>:4321 (NON 127.0.0.1: lo studio lavora in rete)
-pnpm run build             # build statico in dist/
+pnpm run build             # astro check + build statico in dist/ (il gate gira, non solo il build)
 pnpm run lint              # biome — deve restare 0 errori, 0 warning
 pnpm exec astro check      # tipi .astro/.ts — deve restare 0 errori, 0 warning, 0 hint
 pnpm run format            # biome format --write ./src
 ```
 
 Gate prima di consegnare: `lint` + `astro check` + `build` verdi, e i riferimenti agli asset del `dist/`
-tutti risolti. Numeri attesi: **33 pagine**, **33 URL** in `sitemap-0.xml`.
+tutti risolti. Numeri attesi: **33 pagine**, **33 URL** in `sitemap-0.xml` (tutte con la barra finale).
+
+I redirect dei vecchi slug Jekyll stanno in `public/_redirects`, che Netlify legge a ogni deploy: sono 14
+percorsi in due forme (con e senza barra) perché Netlify normalizza la barra solo dopo aver cercato una regola.
 
 `--host` va passato **senza** `--` davanti: con `pnpm run dev -- --host` pnpm passa il `--` letteralmente,
 Astro lo legge come fine delle opzioni e il server resta su `127.0.0.1`.
@@ -121,8 +124,12 @@ di build della piattaforma. Se un giorno serve spostarla, va aggiunto insieme un
 
 ## Trappole già pagate
 
-- `trailingSlash: 'never'`: gli URL corretti sono `/works/nome` **senza** barra finale. In dev la rotta con la
-  barra dà 404.
+- `trailingSlash: 'always'`: gli URL corretti sono `/works/nome/` **con** la barra finale, perché è la forma
+  che Netlify serve (`build.format: 'directory'`); senza barra risponde 301. Canonical, sitemap e link interni
+  devono avere tutti la barra — `@astrojs/sitemap` la aggiunge da solo, `Nav.astro` e `works/index.astro`
+  la scrivono a mano negli `href`. Fino al 12/11/2026 era `'never'` e le 33 URL della sitemap dichiaravano una
+  forma che il server reindirizzava: se ricompare un 301 su un URL del sito, il primo posto da guardare è qui.
+  In dev la rotta **senza** barra ora è quella che non risponde.
 - Astro 7 **scarta gli attributi con valore vuoto**: `alt=''` non arriva nel build e l'`<img>` esce senza `alt`.
   Per le immagini senza didascalia si scrive un alt breve e vero (nome opera + posizione), non vuoto.
 - Dopo un `pnpm add`/upgrade il dev server avviato prima risponde 500 su tutto: va ucciso e riavviato
