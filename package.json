@@ -9,7 +9,7 @@
     "lint": "biome lint ./src",
     "dev": "astro dev --open",
     "check": "astro check --watch & astro dev",
-    "build": "astro build --force",
+    "build": "astro check && astro build --force",
     "buildv": "astro build --verbose",
     "builddev": "astro build --devOutput",
     "buildwithtest": "astro check && tsc --noEmit && astro build",

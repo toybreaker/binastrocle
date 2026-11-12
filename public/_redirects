@@ -1,0 +1,42 @@
+# Redirect dai vecchi slug del sito Jekyll (2018-2020) a quelli della collezione
+# Astro. Misurato il 12/11/2026: tutti questi percorsi rispondono 404, e il sito
+# vecchio è ancora online su cinque alias di branch deploy.
+#
+# Ogni voce compare in due forme — con e senza barra finale — perché Netlify
+# normalizza `/<rotta>` in `/<rotta>/` (Pretty URLs) solo *dopo* aver cercato una
+# regola: con la sola forma con barra, la richiesta senza barra farebbe un primo
+# 301 alla forma con barra e poi un secondo 301 alla destinazione.
+#
+# Le destinazioni hanno la barra finale perché è la forma servita (`trailingSlash:
+# 'always'` in astro.config.mjs): senza, ogni redirect innescherebbe un altro 301.
+
+/works/sixtableaux            /works/six-tableaux/             301
+/works/sixtableaux/           /works/six-tableaux/             301
+/works/dancolen               /works/dan-colen/                301
+/works/dancolen/              /works/dan-colen/                301
+/works/studiobinocle          /works/studio-binocle/           301
+/works/studiobinocle/         /works/studio-binocle/           301
+/works/jcricketstorebeijing   /works/j-cricket-store-beijing/  301
+/works/jcricketstorebeijing/  /works/j-cricket-store-beijing/  301
+/works/bastardstore           /works/bastard-store/            301
+/works/bastardstore/          /works/bastard-store/            301
+/works/tacchini               /works/tacchini-stand-2022/      301
+/works/tacchini/              /works/tacchini-stand-2022/      301
+/works/potoccostand2024       /works/potocco-stand-2024/       301
+/works/potoccostand2024/      /works/potocco-stand-2024/       301
+/works/tacchinistand2024      /works/tacchini-stand-2024/      301
+/works/tacchinistand2024/     /works/tacchini-stand-2024/      301
+/works/mdcgallerylombardia    /works/mdc-gallery-lombardia/    301
+/works/mdcgallerylombardia/   /works/mdc-gallery-lombardia/    301
+/works/mdcgallerybelgioioso   /works/mdc-gallery-belgioioso/   301
+/works/mdcgallerybelgioioso/  /works/mdc-gallery-belgioioso/   301
+/works/acircleinasquare       /works/a-circle-in-a-square/     301
+/works/acircleinasquare/      /works/a-circle-in-a-square/     301
+
+# Progetti che non esistono più: non hanno una pagina a cui puntare.
+/works/nikestadium            /works/                          301
+/works/nikestadium/           /works/                          301
+/works/piombo                 /works/                          301
+/works/piombo/                /works/                          301
+/works/yanpeiming             /works/                          301
+/works/yanpeiming/            /works/                          301
