@@ -104,6 +104,21 @@ alla CDN che in locale non esiste. Per vedere le immagini o si usa `astro dev`, 
 Anche `og:image` passa dalla CDN, con URL assoluto su `site` (`https://binocle.it/...`) — quindi su un
 deploy preview dà 404, ed è corretto: punta alla produzione.
 
+**Qualità 65, decisa dallo studio il 13 novembre 2026.** `quality={65}` su copertina opera, galleria e
+copertina della home; `og:image` resta al default. Il default della CDN *è* q75: senza il parametro `q` si
+serve a 75. Misurato a `w=1296` in avif: −24/−27% di byte, ~2 dB di PSNR, nessuna differenza sul ritaglio
+1:1 — la variante a 1080 px è stata scartata perché si vede. `quality` è una proprietà unica di `<Picture>`,
+quindi vale anche per il fallback webp, dove rende meno (−8/−11%); differenziarla richiederebbe un
+`<picture>` scritto a mano. Nessuna foto esce in jpeg: `fallbackFormat='webp'`.
+
+**La galleria si precarica.** In `works/[hash].astro` uno script porta a `loading="eager"` le foto
+successive, due per volta, quando la pagina è inerte (`requestIdleCallback`); si ferma se la scheda va in
+background. Serve perché Chrome chiede una foto `lazy` solo a ~1 250 px dallo schermo, e senza questo davanti
+a ogni immagine restava un vuoto di 1–2 s. **Non** riscriverlo con una `Image()` costruita a mano: l'`<img>`
+dentro un `<picture>` porta il `srcset` del *fallback*, e si finisce per scaricare webp alla larghezza
+sbagliata (misurato: 12 richieste webp a 828 px, inutili). Cambiando `loading`, formato e larghezza li sceglie
+il browser.
+
 **La cache immagini in `node_modules/.astro` (1,5 GB) adesso è inerte**: con la CDN non si codifica più
 niente. Si può lasciare dov'è; serve solo se si tornasse indietro.
 
