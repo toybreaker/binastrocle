@@ -22,7 +22,8 @@ pnpm run format            # biome format --write ./src
 ```
 
 Gate prima di consegnare: `lint` + `astro check` + `build` verdi, e i riferimenti agli asset del `dist/`
-tutti risolti. Numeri attesi: **33 pagine**, **33 URL** in `sitemap-0.xml` (tutte con la barra finale).
+tutti risolti. Numeri attesi: **34 pagine** (33 più la 404), **33 URL** in `sitemap-0.xml` (tutte con la
+barra finale: la 404 non entra nella sitemap).
 
 I redirect dei vecchi slug Jekyll stanno in `public/_redirects`, che Netlify legge a ogni deploy: sono 14
 percorsi in due forme (con e senza barra) perché Netlify normalizza la barra solo dopo aver cercato una regola.
@@ -36,6 +37,7 @@ Astro lo legge come fine delle opzioni e il server resta su `127.0.0.1`.
 src/pages/index.astro            home (la "picture of the day")
 src/pages/works/[hash].astro     pagina di un lavoro, generata da getStaticPaths
 src/pages/works/index.astro      indice di tutti i lavori (non linkato dal menu)
+src/pages/404.astro              pagina d'errore, emessa come dist/404.html (noindex)
 src/layouts/Layout.astro         head, meta, og, sitemap
 src/components/                  Header, Nav, Footer, Profile, Version
 src/content/works/<hash>/        index.md + fotografie del lavoro
@@ -53,7 +55,8 @@ src/styles/main.css              CSS globale
    (`exhibition-design`, `office`, `gallery`, `retail`, `art-installation`, …).
 3. Fotografie nella stessa cartella: **niente spazi nei nomi**, schema `NOME-01.jpg`, `NOME-02.jpg`… perché
    l'ordine è alfabetico (`localeCompare` in `imageUtils.ts`) e uno spazio diventa `%20` fino all'URL finale.
-4. La prima immagine è la copertina: `loading='eager'`, `fetchpriority='high'`. Le altre sono `lazy`.
+4. La prima immagine è la copertina: prende `priority` (cioè `loading='eager'`, `decoding='sync'`,
+   `fetchpriority='high'`). Le altre sono `lazy` e la galleria si precarica in sottofondo.
 5. Il markdown non referenzia le immagini: vengono scoperte dal glob. Non serve toccare il codice.
 
 ## Immagini: si trasformano all'edge, non al build
@@ -154,6 +157,8 @@ di build della piattaforma. Se un giorno serve spostarla, va aggiunto insieme un
 
 ## Cosa non si tocca
 
-- `dati/` (archivio dello studio) è in sola lettura; gli output vanno in `artifacts/`.
 - La struttura del menu: un solo listener in `src/utils/main.ts` (`initNav()`), idempotente via `WeakSet`.
   I `role='button'` + `tabindex='0'` su logo, mini-logo e immagine della home servono alla tastiera.
+- Lo stato dei pannelli è uno solo: `setPanel('menu' | 'profile' | null)`, con `pushState`/`popstate`/
+  `replaceState`. Due funzioni che si tolgono le classi a vicenda impedirebbero di agganciare il tasto
+  indietro senza chiudere due volte.
