@@ -1,0 +1,70 @@
+---
+// src/pages/404.astro
+// Prima d'ora il 404 era quello di Netlify: 3 449 byte, nessun foglio di stile,
+// nessun logo, nessun link. Chi arriva da un link vecchio (e ce ne sono: dieci
+// slug della vecchia versione del sito) finiva in un vicolo cieco.
+// Astro emette questo file come `dist/404.html`, che Netlify serve da solo.
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout
+  title='Binocle — page not found'
+  bodyClass='default not_found'
+  description='The page you are looking for is not here.'
+  noindex
+>
+  <style>
+    .not_found_page {
+      padding: calc(var(--space) * 3) var(--space) calc(var(--space) * 4);
+      max-width: 32rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .not_found_page h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 var(--space);
+    }
+
+    .not_found_page p {
+      margin: 0 0 calc(var(--space) * 2);
+      color: var(--link_color_light);
+    }
+
+    .not_found_page .vie {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space) calc(var(--space) * 2);
+      justify-content: center;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .not_found_page .vie a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.3em;
+      padding: 0.5rem 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  </style>
+
+  <main class='bungkus' id='main'>
+    <div class='not_found_page'>
+      <h1>Page not found</h1>
+      <p>
+        This address doesn’t lead anywhere. The work may have moved, or the link may be older than
+        the site.
+      </p>
+      <nav class='vie' aria-label='Ways out'>
+        <a href='/works/'>All works</a>
+        <a href='/'>Home</a>
+      </nav>
+    </div>
+  </main>
+</Layout>
