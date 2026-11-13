@@ -46,6 +46,30 @@ a {
   text-transform: capitalize;
 }
 
+/*
+ * Il tocco non deve accendere la riga di azzurro (Chrome, default
+ * rgba(51,181,229,.4)): il menu e l'indice hanno link larghi quanto lo schermo,
+ * e l'evidenziazione diventava l'elemento più visibile della pagina.
+ * Non basta spegnerla — senza nessun riscontro il tocco sembra non funzionare:
+ * al suo posto c'è uno stato `:active` discreto, sui grigi dello studio.
+ */
+a,
+[role='button'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) {
+  a:active,
+  [role='button']:active {
+    background-color: rgb(0 0 0 / 0.04);
+  }
+
+  .menu li a:active,
+  .works_index_list a:active {
+    color: var(--link_color_light);
+  }
+}
+
 a.active {
   color: var(--link_color_light);
 }
