@@ -155,8 +155,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
             sizes={IMAGE_SIZES}
             formats={['avif', 'webp']}
             fallbackFormat='webp'
-            loading='eager'
-            fetchpriority='high'
+            priority
           />
         </div>
       )
@@ -202,4 +201,81 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       {imageUrls.length === 0 && <p>No images found for this work.</p>}
     </section>
   </main>
+
+  <script>
+    // D7 — Chrome chiede una foto `lazy` solo quando dista meno di ~1250 px
+    // dallo schermo: chi scorre un'opera vede un vuoto di 1-2 s davanti a ogni
+    // immagine (misurato: 12 foto, 3,0 MB, due ondate).
+    //
+    // Un osservatore sul viewport non servirebbe: quando una foto è in vista, le
+    // due successive sono già dentro la soglia del browser e stanno scaricando.
+    // Quindi si anticipa diversamente: finite le prime, il resto della galleria
+    // si scarica in sottofondo, una foto per volta nei momenti di inerzia della
+    // pagina (requestIdleCallback), fermandosi se la scheda va in background e
+    // riprendendo al ritorno.
+    //
+    // Sono le foto che l'utente sta per vedere: il totale scaricato non cambia,
+    // cambia quando. Per scelta dello studio vale anche su dati mobili.
+    //
+    // Il precaricamento non costruisce richieste a mano: cambia `loading` da
+    // "lazy" a "eager" sulle foto successive. Così la scelta del formato
+    // (avif) e della larghezza la fa il browser consultando i <source> del
+    // <picture>, come farebbe da solo, e la foto è già in cache quando arriva
+    // sullo schermo.
+    const foto = Array.from(document.querySelectorAll<HTMLImageElement>(".image_content img"));
+    if (foto.length > 0) {
+      let indice = 0;
+      let inVolo = 0;
+      const MAX_IN_VOLO = 2;
+
+      // Due foto per volta, non di più: quelle fuori schermo le scarica il
+      // browser a priorità bassa, quindi non rubano banda a quella che l'utente
+      // sta guardando, e con due in parallelo la galleria è pronta in pochi
+      // secondi.
+      //
+      // Il trucco è `loading = "eager"` sull'<img>, non una Image() separata.
+      // Un'Image() costruita a mano non conosce i <source> del <picture> e
+      // scarica il fallback webp alla larghezza sbagliata — misurato: 828 px in
+      // webp, 1,2 MB di byte che il browser non avrebbe mai usato. Cambiando
+      // `loading`, invece, la scelta del formato e della larghezza la fa il
+      // browser, esattamente come quando la foto entra nello schermo.
+      const riempi = () => {
+        if (document.hidden) return; // riparte su visibilitychange
+        while (inVolo < MAX_IN_VOLO && indice < foto.length) {
+          const img = foto[indice++];
+          if (img.dataset.prefetched === "1" || img.complete) continue;
+          img.dataset.prefetched = "1";
+          inVolo++;
+          const fatto = () => {
+            inVolo--;
+            if ("requestIdleCallback" in window) {
+              requestIdleCallback(riempi, { timeout: 4000 });
+            } else {
+              setTimeout(riempi, 300);
+            }
+          };
+          img.addEventListener("load", fatto, { once: true });
+          img.addEventListener("error", fatto, { once: true });
+          img.loading = "eager";
+        }
+      };
+
+      const avvia = () => {
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(riempi, { timeout: 2000 });
+        } else {
+          setTimeout(riempi, 800);
+        }
+      };
+
+      if (document.readyState === "complete") {
+        avvia();
+      } else {
+        window.addEventListener("load", avvia, { once: true });
+      }
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) riempi();
+      });
+    }
+  </script>
 </Layout>
