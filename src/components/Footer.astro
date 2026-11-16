@@ -11,7 +11,14 @@
 // griglia sarebbe un glifo da indovinare. `BACK TO TOP` è vero perché in cima
 // si è stati; `ALL WORKS` lo è anche per chi arriva da una ricerca e non è mai
 // stato nell'indice — "back to works" no.
-const sullIndice = Astro.url.pathname.replace(/\/+$/, '') === '/works';
+//
+// La riga compare solo sulle pagine opera: è un'uscita, e si esce da un'opera.
+// Sull'indice non c'è niente da cui uscire — ci si è appena arrivati, e "Back
+// to top" su una lista che è essa stessa la destinazione non dice niente — e
+// nemmeno sulla home e sulla 404, dove il fondo sarebbe un comando su una
+// pagina che sta in uno schermo. Lì resta il mini-logo, che apre il profilo.
+const percorso = Astro.url.pathname.replace(/\/+$/, '');
+const èOpera = percorso.startsWith('/works/') && percorso !== '/works';
 ---
 
 <style>
@@ -97,12 +104,16 @@ const sullIndice = Astro.url.pathname.replace(/\/+$/, '') === '/works';
 </style>
 
 <footer class='footer'>
-  <span class='go_home see_more'>
-    <span class='fondo'>
-      <a href='#top'>Back to top</a>
-      {sullIndice ? null : <a href='/works/'>All works</a>}
-    </span>
-  </span>
+  {
+    èOpera ? (
+      <span class='go_home see_more'>
+        <span class='fondo'>
+          <a href='#top'>Back to top</a>
+          <a href='/works/'>All works</a>
+        </span>
+      </span>
+    ) : null
+  }
 
   <span
     class='go_home'
