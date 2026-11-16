@@ -1,5 +1,17 @@
 ---
 // src/components/Footer.astro
+//
+// Il fondo di una pagina opera era un vicolo cieco: un triangolo che riportava
+// in cima e nient'altro. Per tornare alle altre opere bisognava risalire e
+// cliccare il logo in testa, sapendo che il logo è il menu. Ora due parole
+// dicono dove si va, e il sito ha un link in entrata verso l'indice che prima non esisteva.
+//
+// Scelta dello studio (13-14/11/2026): due testi invece di due icone, perché
+// l'hamburger in questa pagina significa già "apri il pannello" (il logo) e una
+// griglia sarebbe un glifo da indovinare. `BACK TO TOP` è vero perché in cima
+// si è stati; `ALL WORKS` lo è anche per chi arriva da una ricerca e non è mai
+// stato nell'indice — "back to works" no.
+const sullIndice = Astro.url.pathname.replace(/\/+$/, '') === '/works';
 ---
 
 <style>
@@ -11,16 +23,87 @@
     width: 100%;
     text-align: center;
   }
+
+  /* La riga in fondo. Sotto i 481 px è larga quanto la finestra meno i margini
+     dello studio, e le due etichette stanno ai bordi: la distanza fra loro si
+     adatta alla larghezza. 44 px di altezza minima perché due parole in
+     maiuscolo a 0,8rem sono ~14 px di glifo, e il triangolo che sostituiscono
+     era 2,75rem. */
+  .fondo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding-inline: calc(var(--space) * 2);
+  }
+
+  .fondo :global(a) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--link_color);
+  }
+
+  .fondo :global(a:hover) {
+    color: #000;
+  }
+
+  /* L'anello di focus va sull'elemento che si tocca. La regola che esiste in
+     main.css lo disegna sull'SVG (.go_home:focus-visible svg), che qui non c'è,
+     e `.go_home:focus-visible` spegne l'outline del contenitore: senza questa
+     riga l'unica uscita dalla pagina sarebbe invisibile da tastiera. */
+  .fondo :global(a:focus-visible) {
+    outline: 2px solid var(--link_color);
+    outline-offset: 0.35rem;
+    border-radius: 2px;
+  }
+
+  /* Da 481 px in su la riga ha una larghezza fissa (26rem, 416 px) e resta
+     centrata: la distanza fra le due etichette è sempre 162 px e ciò che cresce
+     con la finestra è lo spazio ai lati. Prima questa regola partiva da 801 px e
+     nella fascia 481-800 tornava la riga da 46rem, con le etichette a 440 px
+     l'una dall'altra: la soglia è a 481 perché lì il salto è 169 → 162 px. */
+  @media (min-width: 481px) {
+    .fondo {
+      max-width: 26rem;
+      padding-inline: 0;
+    }
+
+    .fondo :global(a) {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  /* Col testo ingrandito dall'utente (Firefox Android può stare al 150%) le due
+     etichette non entrano più nella riga: 309 px richiesti in 285 disponibili a
+     390 di larghezza. Meglio che vadano a capo, non che si accavallino. */
+  @media (max-width: 480px) {
+    .fondo {
+      flex-wrap: wrap;
+      row-gap: 0.25rem;
+    }
+  }
 </style>
 
 <footer class='footer'>
-  <span class='go_home see_more '>
-    <a href='#top' title='return to top'>
-      <svg id='see_more_icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
-        <path d='M169.067 600L400 200l230.934 400H169.067z'></path>
-      </svg>
-    </a>
+  <span class='go_home see_more'>
+    <span class='fondo'>
+      <a href='#top'>Back to top</a>
+      {sullIndice ? null : <a href='/works/'>All works</a>}
+    </span>
   </span>
+
   <span
     class='go_home'
     id='toggle_about_binocle'
