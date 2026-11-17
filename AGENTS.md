@@ -139,6 +139,15 @@ di build della piattaforma. Se un giorno serve spostarla, va aggiunto insieme un
 ## Deploy
 
 - `main` è **produzione**: Netlify costruisce da lì. Si lavora su un ramo e si apre una PR.
+- **Chi fa cosa, e non si scambia**: l'agente apre la PR e la verifica; **il merge lo fa una persona**.
+  Non esiste — e non deve esistere — un caso in cui l'identità che ha aperto la PR la mergia da sola:
+  su GitHub resterebbe un merge fatto dal bot che ha scritto il codice, cioè nessuna approvazione,
+  anche quando la persona ha detto «procedi» a voce. Se una PR è pronta e serve andare avanti, la si
+  lascia pronta e si dice a chi la deve mergiare; il «procedi» non è un'autorizzazione al merge.
+  Il motivo è nel record, non nella fiducia: fra sei mesi l'unica cosa che si può leggere è chi ha
+  cliccato, e se il nome è quello del bot non c'è niente da leggere.
+- I check di Netlify (deploy preview, header, redirect) non sono un'approvazione: dicono che il sito
+  costruisce, non che la modifica è giusta.
 - `netlify.toml` dichiara `NODE_VERSION = 26` (senza, il build remoto si ferma sugli engines di Astro),
   gli header di sicurezza e `Cache-Control: immutable` per `/_astro/*` (i nomi contengono l'hash).
   HSTS non è scritto lì: Netlify lo manda già.
