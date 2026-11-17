@@ -7,7 +7,7 @@ description: 'Commissioned by Kvadrat on occasion of the Milan Design Week, this
 program: installation
 year: 2026
 ---
-Commissioned by Kvadrat on occasion of the Milan Design Week, this installation was conceived and developed to accompany the launch of ‘Twisted Flowers’, a new fabric designed by Italian designer and colourist Giulio Ridolfo. Engaging with the concrete columns, façade and linear geometry of the existing space designed by Alfredo Häberli, the structure is composed of lightweight painted modular oak sticks, providing a precise yet adaptable framework for a textile mosaic that transforms the Milanese showroom into an imaginary and colourful yurt.
+Engaging with the concrete columns, façade and linear geometry of the existing space designed by Alfredo Häberli, the structure is composed of lightweight painted modular oak sticks, providing a precise yet adaptable framework for a textile mosaic that transforms the Milanese showroom into an imaginary and colourful yurt.
 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|

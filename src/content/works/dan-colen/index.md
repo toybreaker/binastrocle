@@ -7,9 +7,6 @@ description: "‘Oh Shit’ is an art installation conceived by Dan Colen as par
 program: art-installation
 year: 2010
 ---
-
-'Oh Shit' is an art installation conceived by Dan Colen as part of 'Karma', his first solo show in Milan that took place at the Massimo De Carlo Gallery in 2010.
-
 In order to build his 13.5-m-long, 4.2-m-wide and 5.2-m-tall overturned skateboard ramp, the American artist made use of our experience and skills with wood to develop and engineer this temporary construction.
 
 
