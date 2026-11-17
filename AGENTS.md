@@ -53,6 +53,11 @@ src/styles/main.css              CSS globale
 2. `index.md` con frontmatter: `layout`, `hash`, `project` (nome mostrato nell'h1), `title` (titolo SEO
    "Binocle - …"), `description`, `program`, `year`. `program` è opzionale; i valori sono kebab-case
    (`exhibition-design`, `office`, `gallery`, `retail`, `art-installation`, …).
+   **`description` è un testo solo e si legge in pagina**: è il paragrafo d'apertura dell'opera e la
+   stessa stringa finisce in `<meta name="description">`, `og:description`, `twitter:description` e nel
+   JSON-LD. Va scritta come prosa compiuta, senza "..." in coda: prima di tutto la leggono le persone.
+   Non va ripetuta nel corpo del markdown — il corpo **riparte da dopo** quella frase. Nessun limite di
+   lunghezza: Google dichiara di non averne e taglia lo snippet alla larghezza del dispositivo.
 3. Fotografie nella stessa cartella: **niente spazi nei nomi**, schema `NOME-01.jpg`, `NOME-02.jpg`… perché
    l'ordine è alfabetico (`localeCompare` in `imageUtils.ts`) e uno spazio diventa `%20` fino all'URL finale.
 4. La prima immagine è la copertina: prende `priority` (cioè `loading='eager'`, `decoding='sync'`,
@@ -134,6 +139,15 @@ di build della piattaforma. Se un giorno serve spostarla, va aggiunto insieme un
 ## Deploy
 
 - `main` è **produzione**: Netlify costruisce da lì. Si lavora su un ramo e si apre una PR.
+- **Chi fa cosa, e non si scambia**: l'agente apre la PR e la verifica; **il merge lo fa una persona**.
+  Non esiste — e non deve esistere — un caso in cui l'identità che ha aperto la PR la mergia da sola:
+  su GitHub resterebbe un merge fatto dal bot che ha scritto il codice, cioè nessuna approvazione,
+  anche quando la persona ha detto «procedi» a voce. Se una PR è pronta e serve andare avanti, la si
+  lascia pronta e si dice a chi la deve mergiare; il «procedi» non è un'autorizzazione al merge.
+  Il motivo è nel record, non nella fiducia: fra sei mesi l'unica cosa che si può leggere è chi ha
+  cliccato, e se il nome è quello del bot non c'è niente da leggere.
+- I check di Netlify (deploy preview, header, redirect) non sono un'approvazione: dicono che il sito
+  costruisce, non che la modifica è giusta.
 - `netlify.toml` dichiara `NODE_VERSION = 26` (senza, il build remoto si ferma sugli engines di Astro),
   gli header di sicurezza e `Cache-Control: immutable` per `/_astro/*` (i nomi contengono l'hash).
   HSTS non è scritto lì: Netlify lo manda già.

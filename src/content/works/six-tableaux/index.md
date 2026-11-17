@@ -1,15 +1,12 @@
 ---
 layout: works
 hash: six-tableaux
-project: six tableaux
-title: Binocle - Six tableaux
+project: 'Six Tableaux'
+title: 'Binocle - Six Tableaux'
 description: "A series of marble tables characterised by an irregular shapes obtained by retracing details or portions of works by six different contemporary artists."
 program: furniture
 year: 2019
 ---
-
-A series of marble tables characterised by an irregular shapes obtained by retracing details or portions of works by six different contemporary artists.
-
 Presented for the first time in occasion of the Milan Design Week 2019 with an exhibition staged inside BINOCLE’s office, the pieces are available in the dining table version for 8 persons (scale 1:1) or in the coffee table version (scale 1:2).
 
 

@@ -165,6 +165,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <h1 class='work_name'>{work.data.project}</h1>
 
     <section class='text_content intro'>
+      {/*
+        Un solo testo. La `description` del frontmatter e' quello che si legge
+        qui e quello che finisce in <meta name="description">, og: e twitter::
+        prima erano due stesure della stessa cosa — in 9 progetti identiche
+        parola per parola — e una delle due restava sempre indietro.
+      */}
+      <p class='lead'>{work.data.description}</p>
       <Content />
     </section>
 

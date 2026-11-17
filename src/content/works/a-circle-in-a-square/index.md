@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: a-circle-in-a-square
-project: a circle in a square
-title: Binocle - A circle in a square
+project: 'A Circle in a Square'
+title: 'Binocle - A Circle in a Square'
 description: "Art installation for the Satoyama Museum of Contemporary Art Kinare consisting of a bar, a restaurant, a bookstore and a local radio station."
 program:
  - bar
@@ -11,9 +11,6 @@ program:
  - radio-station
 year: 2012
 ---
-
-Art installation for the Satoyama Museum of Contemporary Art Kinare consisting of a bar, a restaurant, a bookstore and a local radio station.
-
 Built in occasion of the Echigo-Tsumari Art Triennale 2012 the project was developed in collaboration with Italian artist Massimo Bartolini and remained as a permanent facility for the museum’s visitors.
 
 
