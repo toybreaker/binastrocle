@@ -53,6 +53,11 @@ src/styles/main.css              CSS globale
 2. `index.md` con frontmatter: `layout`, `hash`, `project` (nome mostrato nell'h1), `title` (titolo SEO
    "Binocle - …"), `description`, `program`, `year`. `program` è opzionale; i valori sono kebab-case
    (`exhibition-design`, `office`, `gallery`, `retail`, `art-installation`, …).
+   **`description` è un testo solo e si legge in pagina**: è il paragrafo d'apertura dell'opera e la
+   stessa stringa finisce in `<meta name="description">`, `og:description`, `twitter:description` e nel
+   JSON-LD. Va scritta come prosa compiuta, senza "..." in coda: prima di tutto la leggono le persone.
+   Non va ripetuta nel corpo del markdown — il corpo **riparte da dopo** quella frase. Nessun limite di
+   lunghezza: Google dichiara di non averne e taglia lo snippet alla larghezza del dispositivo.
 3. Fotografie nella stessa cartella: **niente spazi nei nomi**, schema `NOME-01.jpg`, `NOME-02.jpg`… perché
    l'ordine è alfabetico (`localeCompare` in `imageUtils.ts`) e uno spazio diventa `%20` fino all'URL finale.
 4. La prima immagine è la copertina: prende `priority` (cioè `loading='eager'`, `decoding='sync'`,
