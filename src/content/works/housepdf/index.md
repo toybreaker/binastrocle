@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: housepdf
-project: house pdf
-title: Binocle - House pdf
+project: 'House PDF'
+title: 'Binocle - House PDF'
 description: "Renovation of a 40 sqm studio flat on the top floor of a condominium set in a former convent from the beginning of the last century."
 year: 2004
 ---

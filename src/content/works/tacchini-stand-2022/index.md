@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: tacchini-stand-2022
-project: Tacchini stand 2022
-title: Binocle - Tacchini stand 2022
+project: 'Tacchini Stand 2022'
+title: 'Binocle - Tacchini Stand 2022'
 description: 'Conceived as a domestic and a monumental place at the same time, our stand for Tacchini at the Salone Internazionale del Mobile accompanies the visitor through a sequence of rooms of different shapes and sizes, a series of protected spaces in continuous communication with each other and with the outside.'
 program: exhibition-design
 year: 2022

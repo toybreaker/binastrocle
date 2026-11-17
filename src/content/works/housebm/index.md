@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: housebm
-project: house b m
-title: Binocle - House b m
+project: 'House B M'
+title: 'Binocle - House B M'
 description: 'Originally built as a family house, this square-plan building located at a crossroads and flanked by a private garden was soon adapted to house a Montessori kindergarten.'
 year: 2019
 ---

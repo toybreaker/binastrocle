@@ -1,9 +1,9 @@
 ---
 layout: works
 hash: studio-binocle
-project: studio binocle
-title: Binocle - Studio binocle
-description: 'Our office is located atop of an unusual building from the 20’s known by people from Milan as ‘Cremlino’. The dome, under which we moved in 2014, measures 9 m in diameter, 5.5 m in height, overlooks the entire city and culminates into a 12 m spire.'
+project: 'Studio Binocle'
+title: 'Binocle - Studio Binocle'
+description: 'Our office is located atop of an unusual building from the 20’s known by people from Milano as ‘Cremlino’. The dome, under which we moved in 2014, measures 9 m in diameter, 5.5 m in height, overlooks the entire city and culminates into a 12 m spire.'
 program: office
 year: 2014
 ---
@@ -12,7 +12,7 @@ To make space for our books and tools, to provide a proper entrance and to organ
 
 |&nbsp;|&nbsp;|
 |:----------|:---------------|
-| Location:    | Milan, Italy |
+| Location:    | Milano, Italy |
 | Client:      | Ourselves |
 | Year:        | 2014 |
 | Status:      | Completed |

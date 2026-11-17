@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: tacchini-stand-2024
-project: tacchini stand 2024
-title: Binocle - Tacchini stand 2024
+project: 'Tacchini Stand 2024'
+title: 'Binocle - Tacchini Stand 2024'
 description: 'To present the Tacchini brand, a dreamlike and eclectic collection of precious re-editions of historical pieces and contemporary furniture on the verge between serial production and collectible design, we have conceived a stand that alludes to the generous and well-proportioned space of an elegant urban apartment.'
 program: exhibition-design
 year: 2024

@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: j-cricket-store-milano
-project: j.cricket store milano
-title: Binocle - J.Cricket store Milano
+project: 'J.Cricket Store Milano'
+title: 'Binocle - J.Cricket Store Milano'
 description: 'This project follows the first store opened in Beijing in 2019 and the acquisition of an independent three-storey building located in a historic courtyard in the Milanese Porta Venezia district.'
 program: retail
 year: 2025
@@ -12,7 +12,7 @@ Through the choice of the materials and the patterns of floors that vary on each
 
 |&nbsp;|&nbsp;|
 |:----------|:---------------|
-|Location:|Milan, Italy|
+|Location:|Milano, Italy|
 |Client:|J.Cricket|
 |Year:|2025|
 |Status:|Completed|

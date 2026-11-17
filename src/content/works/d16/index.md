@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: d16
-project: D16
-title: Binocle - D16
+project: 'D16'
+title: 'Binocle - D16'
 description: 'This 150 sqm workshop is part of a former industrial area that was previously subdivided and transformed into a lively neighborhood featuring a variety of commercial spaces and offices.'
 program: office
 year: 2024
@@ -11,7 +11,7 @@ Unlike other lofts, the D16 unit had never been renovated until its owners decid
 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|
-|Location:|Milan, Italy|
+|Location:|Milano, Italy|
 |Client:|Private|
 |Year:|2023-2024|
 |Status:|Completed|

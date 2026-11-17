@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: bastard-store
-project: bastard store
-title: Binocle - Bastard store
+project: 'Bastard Store'
+title: 'Binocle - Bastard Store'
 description: 'Conversion of a former movie theater into the headquarter of an Italian company founded by skateboarders to design, produce and distribute clothing and accessories for skateboarders and snowboarders under the brand Bastard.'
 year: 2008
 program:
@@ -16,7 +16,7 @@ In 2009 the project was awarded the [ArchDaily Building of the Year](http://www.
 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|
-| Location: | Milan, Italy |
+| Location: | Milano, Italy |
 | Client: | Comvert S.r.l. |
 | Year: | 2006-2008 |
 | Status: | Completed |

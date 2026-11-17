@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: spa
-project: SPA
-title: Binocle - SPA
+project: 'SPA'
+title: 'Binocle - SPA'
 description: 'Two storeys of a neoclassical building in the centre of Oleggio have been transformed into a space for art (SPA - Spazio Per Arte) on the initiative of a family of collectors.'
 program: art-space
 year: 2023

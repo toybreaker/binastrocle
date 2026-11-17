@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: kosho
-project: kosho
-title: Binocle - Kosho
+project: 'Kosho'
+title: 'Binocle - Kosho'
 description: 'Our proposal for Sukkah City, a design competition that took place in New York in 2010, was a do-it-yourself structure tested during the development of our entry through a 1:1 scale prototype.'
 program: temporary-structure
 year: 2010

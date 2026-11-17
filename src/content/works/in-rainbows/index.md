@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: in-rainbows
-project: in rainbows
-title: Binocle - In Rainbows
+project: 'In Rainbows'
+title: 'Binocle - In Rainbows'
 description: 'Commissioned by Kvadrat on occasion of the Milan Design Week, this installation was conceived and developed to accompany the launch of ‘Twisted Flowers’, a new fabric designed by Italian designer and colourist Giulio Ridolfo.'
 program: installation
 year: 2026
@@ -11,7 +11,7 @@ Engaging with the concrete columns, façade and linear geometry of the existing 
 
 |&nbsp;|&nbsp;|
 |:---------------|:--------------------------------|
-|Location:|Milan, Italy|
+|Location:|Milano, Italy|
 |Client:|[Kvadrat](https://www.kvadrat.dk/en/salone-del-mobile/salone-del-mobile-2026/in-rainbows)|
 |Year:|2026|
 |Status:|Completed|

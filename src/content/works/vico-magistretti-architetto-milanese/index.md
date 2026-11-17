@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: vico-magistretti-architetto-milanese
-project: vico magistretti architetto milanese
-title: Binocle - Vico magistretti architetto milanese
+project: 'Vico Magistretti Architetto Milanese'
+title: 'Binocle - Vico Magistretti Architetto Milanese'
 description: 'Set up for the exhibition ‘Vico Magistretti. Architetto milanese’ organised by Triennale Milano in collaboration with Fondazione studio museo Vico Magistretti in occasion of the centenary of the architect’s birth.'
 program: exhibition-design
 year: 2021

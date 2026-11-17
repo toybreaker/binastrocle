@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: housedm
-project: house d m
-title: Binocle - House d m
+project: 'House D M'
+title: 'Binocle - House D M'
 description: 'Through brutal demolitions, hardy excavations and daring structural steelworks, an existing row house with a fairly small footprint has been utterly transformed inside - though barely restored outside - and brought to new life.'
 year: 2016
 ---

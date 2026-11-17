@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: potocco-stand-2025
-project: Potocco Stand 2025
-title: Binocle - Potocco Stand 2025
+project: 'Potocco Stand 2025'
+title: 'Binocle - Potocco Stand 2025'
 description: 'Following a collaboration which began during the previous edition of the Milan Furniture Fair, in 2025 we designed a new stand marked by both similarities and differences from its predecessor. The same 400 sqm area, located in the same spot within the same hall, is again divided into nine more or less equal spaces.'
 program: exhibition-design
 year: 2025

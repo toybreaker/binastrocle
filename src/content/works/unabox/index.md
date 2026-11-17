@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: unabox
-project: unabox
-title: Binocle - Unabox
+project: 'UnaBox'
+title: 'Binocle - UnaBox'
 description: 'UnaBox is a tiny secret case - inspired by an even smaller Indian box - that was designed and built as a gift for a six months old baby.'
 program: gift
 year: 2009

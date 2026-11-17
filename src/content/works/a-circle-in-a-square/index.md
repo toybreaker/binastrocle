@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: a-circle-in-a-square
-project: a circle in a square
-title: Binocle - A circle in a square
+project: 'A Circle in a Square'
+title: 'Binocle - A Circle in a Square'
 description: "Art installation for the Satoyama Museum of Contemporary Art Kinare consisting of a bar, a restaurant, a bookstore and a local radio station."
 program:
  - bar

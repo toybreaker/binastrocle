@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: officecvm
-project: office cv m
-title: Binocle - Office CV M
+project: 'Office CV M'
+title: 'Binocle - Office CV M'
 description: "An office space for multiple purposes located in a courtyard of a historical Milanese building."
 program: office
 year: 2021

@@ -1,8 +1,8 @@
 ---
 layout: works
 hash: housebgm
-project: house bg m
-title: Binocle - House BG M #for SEO tag
+project: 'House BG M'
+title: 'Binocle - House BG M'
 description: "An L shaped 70 sqm attic - converted to accommodate a family of 3 - is organized in two areas of identical size and opposite characteristics."
 year: 2020
 ---
