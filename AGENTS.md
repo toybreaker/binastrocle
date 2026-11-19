@@ -22,7 +22,7 @@ pnpm run format            # biome format --write ./src
 ```
 
 Gate prima di consegnare: `lint` + `astro check` + `build` verdi, e i riferimenti agli asset del `dist/`
-tutti risolti. Numeri attesi: **34 pagine** (33 più la 404), **33 URL** in `sitemap-0.xml` (tutte con la
+tutti risolti. Numeri attesi: **35 pagine** (34 più la 404), **34 URL** in `sitemap-0.xml` (tutte con la
 barra finale: la 404 non entra nella sitemap).
 
 I redirect dei vecchi slug Jekyll stanno in `public/_redirects`, che Netlify legge a ogni deploy: sono 14
@@ -51,8 +51,12 @@ src/styles/main.css              CSS globale
 
 1. Cartella `src/content/works/<hash>/`, dove `<hash>` è **anche** lo slug dell'URL (`/works/<hash>`).
 2. `index.md` con frontmatter: `layout`, `hash`, `project` (nome mostrato nell'h1), `title` (titolo SEO
-   "Binocle - …"), `description`, `program`, `year`. `program` è opzionale; i valori sono kebab-case
-   (`exhibition-design`, `office`, `gallery`, `retail`, `art-installation`, …).
+   "Binocle - …"), `description`, `program`, `year`, `date`. `program` è opzionale; i valori sono kebab-case
+   (`exhibition-design`, `office`, `gallery`, `retail`, `art-installation`, …). **`date`** (`'YYYY-MM'`, fra
+   apici) è opzionale e serve a un solo scopo: mettere in ordine due opere dello stesso anno. L'elenco di
+   `/works/` e il menu ordinano per anno decrescente, poi per `date` decrescente, poi per nome; chi non ha
+   `date` viene dopo quelli datati. Il comparatore è uno solo, `src/utils/works.ts`, usato da `Nav.astro` e
+   da `works/index.astro`: i due elenchi non possono divergere.
    **`description` è un testo solo e si legge in pagina**: è il paragrafo d'apertura dell'opera e la
    stessa stringa finisce in `<meta name="description">`, `og:description`, `twitter:description` e nel
    JSON-LD. Va scritta come prosa compiuta, senza "..." in coda: prima di tutto la leggono le persone.

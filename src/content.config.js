@@ -17,6 +17,11 @@ const works = defineCollection({
     // a 316 caratteri.
     description: z.string(),
     year: z.number(),
+    // Data del lavoro, opzionale: serve solo a ordinare due opere dello stesso
+    // anno (la più recente prima). Formato YYYY-MM o YYYY-MM-DD, fra apici.
+    // Chi non ce l'ha resta dopo quelli datati, in ordine alfabetico: le opere
+    // vecchie non vanno ristrutturate per riempire il campo.
+    date: z.string().optional(),
     program: z.string().or(z.array(z.string())).optional()
     //images: z.array(z.number()).optional(), // Keep optional for now, will be auto-populated
   }),
