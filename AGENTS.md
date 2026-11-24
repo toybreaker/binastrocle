@@ -22,7 +22,7 @@ pnpm run format            # biome format --write ./src
 ```
 
 Gate prima di consegnare: `lint` + `astro check` + `build` verdi, e i riferimenti agli asset del `dist/`
-tutti risolti. Numeri attesi: **34 pagine** (33 più la 404), **33 URL** in `sitemap-0.xml` (tutte con la
+tutti risolti. Numeri attesi: **35 pagine** (34 più la 404), **34 URL** in `sitemap-0.xml` (tutte con la
 barra finale: la 404 non entra nella sitemap).
 
 I redirect dei vecchi slug Jekyll stanno in `public/_redirects`, che Netlify legge a ogni deploy: sono 14
