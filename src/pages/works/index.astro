@@ -2,15 +2,12 @@
 // src/pages/works/index.astro
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
+import { sortWorks } from '@utils/works';
 
-// Stesso ordinamento del menu: anno decrescente, poi nome del progetto.
+// Stesso ordinamento del menu: anno decrescente, poi il più recente dell'anno,
+// poi il nome del progetto. Il comparatore è condiviso con Nav.astro.
 const works = await getCollection('works');
-const sortedWorks = works.sort((a, b) => {
-  if (b.data.year !== a.data.year) {
-    return b.data.year - a.data.year;
-  }
-  return a.data.project.localeCompare(b.data.project);
-});
+const sortedWorks = sortWorks(works);
 
 const pageTitle = 'BINOCLE | works';
 const bodyClass = 'works_index';

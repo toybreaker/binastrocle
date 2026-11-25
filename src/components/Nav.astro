@@ -1,19 +1,15 @@
 ---
 // src/components/Nav.astro
 import { getCollection } from 'astro:content';
+import { sortWorks } from '@utils/works';
 
 // Get all works from the content collection
 const works = await getCollection('works');
 
-// Sort works by year descending (newest first), then by project name as secondary sort
-const sortedWorks = works.sort((a, b) => {
-  // First sort by year descending
-  if (b.data.year !== a.data.year) {
-    return b.data.year - a.data.year;
-  }
-  // If years are the same, sort by project name alphabetically
-  return a.data.project.localeCompare(b.data.project);
-});
+// Ordine: anno decrescente, poi il più recente dell'anno, poi il nome.
+// Il comparatore è in `src/utils/works.ts` perché /works/ deve elencarli
+// nello stesso ordine.
+const sortedWorks = sortWorks(works);
 
 // `trailingSlash: 'always'`: le URL si servono e si linkano con la barra
 // finale, quindi anche il confronto per la voce corrente va fatto sulla forma
